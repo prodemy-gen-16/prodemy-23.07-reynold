@@ -1,0 +1,111 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Kontak Sekolah Koding</title>
+        <meta charset="UTF-8">
+    </head>
+
+    
+    <body>
+
+        <!-- menu website -->
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+
+        <!-- bagian awal, isinya tag heading -->
+        <div>
+            <h1>Kontak Sekolah Koding</h1>
+            <h2>&nbsp;Tutorial online untuk belajar <span>membuat website</span></h2>
+        </div>
+
+        <!-- form -->
+        <form action="">
+            <fieldset>
+                <legend>Nama dan Oesan</legend>
+
+                <label for="nama_user">Nama</label>
+                <input id="nama_user" type="text" placeholder="Nama User" value="Nama Anda">
+                
+                <br><br>
+                
+                <label for="pesan_user">Pesan</label>
+                <textarea id="pesan_user" cols="100" rows="7">Pesan saya adalah...</textarea>
+                
+                <br>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Pilihan data</legend>
+                <label>Hobi</label><br>
+                <input type="checkbox" name="hobi_user" value="0">Ninja <br>
+                <input type="checkbox" name="hobi_user" value="1" checked>Pirate <br>
+                <input type="checkbox" name="hobi_user" value="2">Mage <br>
+                
+                <br>
+                
+                <label>Jenis Kelamin</label><br>
+                <input type="radio" name="gender" value="0" checked>Laki-laki <br>
+                <input type="radio" name="gender" value="1">Perempuan <br>
+    
+                <br>
+    
+                <label>Pelajaran</label>
+                <select>
+                    <optgroup label="Frontend">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                    </optgroup>
+    
+                    <optgroup label="Backend">
+                        <option value="js">JavaScript</option>
+                        <option value="db">Database</option>
+                    </optgroup>
+                </select>
+
+                <input type="submit" value="Send Data">
+
+            </fieldset>
+        </form>
+
+        <br>
+
+        <table border="1">
+            <caption>Daftar murid sekolahkoding</caption>
+            <tr>
+                <th>Nama Murid</th>
+                <th>Kota Asal</th>
+            </tr>
+            <tr>
+                <td>Naruto</td>
+                <td>Konoha</td>
+            </tr>
+            <tr>
+                <td>Luffy</td>
+                <td>Foosha</td>
+            </tr>
+        </table>
+
+        <!-- list -->
+        <ul>
+            <li>Naruto</li>
+            <li>Luffy</li>
+        </ul>
+
+        <ol>
+            <li>Naruto</li>
+            <li>Luffy</li>
+        </ol>
+
+        <dl>
+            <dt>Naruto</dt>
+            <dd>User ter-dattebayo </dd>
+
+            <dt>Luffy</dt>
+            <dd>User ter-kaizoku </dd>
+        </dl>
+
+        <p>&copy; nold</p>
+    </body>
+</html>
