@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<style>
+    html, body 
+    {
+        height: 100%;
+        overflow: hidden
+    }
+    .recently-opened 
+    {
+        display: inline-block;
+        width: 325px;
+        background-color: grey;
+        margin-bottom: 5px;
+    }
+    .artist
+    {
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    
+    <!-- Left Section -->
+    <div style="display: inline-block; width: 325px;">
+
+        <!-- NavBar Section -->
+        <nav>
+
+            <div>
+                <img src="svg/home.svg" alt="home_icon" height="14px">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div>
+                <img src="svg/search.svg" alt="search_icon" height="14px">
+                <a href="search.html">Search</a>
+            </div>
+            
+        </nav>
+
+        <br>
+
+        <!-- Library Section -->
+        <div>
+
+            <div>
+                <img src="svg/library.svg" alt="search_icon" height="14px">
+                <span>Your Library</span>
+            </div>
+
+            <div>
+                <button>Playlist</button>
+                <button>Artist</button>
+                <button>Albums</button>
+                <button>Podcasts & Shows</button>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Search in Your Library" width="">
+                <select>
+                    <optgroup label="Sort by">
+                        <option value="recents">Recents</option>
+                        <option value="recently_added" selected>Recently Added</option>
+                        <option value="alphabetical">Alphabetical</option>
+                        <option value="creator">Creator</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div style="height: 600px;">
+                <iframe src="components/library.html" frameborder="0" style="overflow:hidden; height:100%; width:100%;" height="100%" width="100%"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Section -->
+    <div style="display: inline-block; vertical-align: top">
+
+        <!-- First Section -->
+        <div>
+            
+            <div>
+                <h2>Good evening</h2>
+            </div>
+
+            <div>
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/playlist_kpop.jpg" alt="playlist_kpop" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>KPOP</span>
+                    </div>
+                </div>
+    
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/playlist_anime.jpg" alt="playlist_anime" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>Anime</span>
+                    </div>
+                </div>
+    
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/artist_h1_key.jpg" alt="artist_h1_key" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>H1-KEY</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div>
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/artist_twice.jpg" alt="artist_twice" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>TWICE</span>
+                    </div>
+                </div>
+    
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/artist_itzy.jpg" alt="liked_songs" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>ITZY</span>
+                    </div>
+                </div>
+    
+                <div class="recently-opened">
+                    <div style="display: inline-block;">
+                        <img src="img/artist_yoasobi.jpg" alt="liked_songs" width="60px">
+                    </div>
+                    <div style="display: inline-block; vertical-align: top;">
+                        <span>YOASOBI</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Second Section -->
+        <div>
+
+            <div>
+                <h3>Your playlist</h3>
+            </div>
+            
+            <div>
+                <div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_anime.jpg" alt="playlist_anime" width="100px">
+                        <div>
+                            <span> <b>Anime</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_kpop.jpg" alt="playlist_kpop" width="100px">
+                        <div>
+                            <span> <b>KPOP</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                        
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_new_jeans.jpg" alt="playlist_new_jeans" width="100px">
+                        <div>
+                            <span> <b>NewJeans</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                        
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_one_ok_rock.jpg" alt="playlist_one_ok_rock" width="100px">
+                        <div>
+                            <span> <b>ONE OK ROCK</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                        
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_real_drum.jpg" alt="playlist_real_drum" width="100px">
+                        <div>
+                            <span> <b>Real Drum</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                        
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_twice.jpg" alt="playlist_twice" width="100px">
+                        <div>
+                            <span> <b>TWICE</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Third Section -->
+        <div>
+
+            <div>
+                <h3>Recently played</h3>
+            </div>
+            
+            <div>
+                <div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_kpop.jpg" alt="playlist_kpop" width="100px">
+                        <div>
+                            <span> <b>KPOP</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_itzy.jpg" alt="playlist_itzy" width="100px">
+                        <div>
+                            <span> <b>ITZY</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_coldplay.jpg" alt="artist_coldplay" width="100px">
+                        <div>
+                            <span> <b>Coldplay</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_twice.jpg" alt="artist_twice" width="100px">
+                        <div>
+                            <span> <b>TWICE</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/playlist_niziu.jpg" alt="playlist_niziu" width="100px">
+                        <div>
+                            <span> <b>NiziU</b> </span> <br>
+                            <span>By nold</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_itzy.jpg" alt="artist_itzy" width="100px">
+                        <div>
+                            <span> <b>ITZY</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div>
+        <div style="display: inline-block;">
+            <img src="img/day6_you_were_beautiful.jpg" alt="day6_you_were_beautiful" width="35px">
+        </div>
+        <div style="display: inline-block;">
+            <span>You Were Beautiful</span>
+            <br>
+            <span>DAY6</span>
+        </div>
+    </div>
+</body>
+</html>
