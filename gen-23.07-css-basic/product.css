@@ -99,10 +99,12 @@ body{
     background-color: #132322;
     padding-bottom: 40px;
     padding-left: 50px;
+    display: block;
+    position: relative;
 }
 
-footer ul{
-    display: inline;
+footer div {
+    clear: both;
 }
 
 li{
@@ -111,6 +113,13 @@ li{
     width: 30px;
     height: 30px;
     overflow: hidden;
+}
+
+.social{
+    list-style-type: none;
+    left: 10px;
+    top: 20px;
+    padding: 10px;
 }
 
 .twitter{
