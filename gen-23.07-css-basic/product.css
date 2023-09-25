@@ -1,0 +1,25 @@
+.header{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid grey;
+}
+
+#second_header{
+    height: 20px;
+}
+
+.header > div {
+    display: inline-block;
+}
+
+#menu_burger, #product_text {
+    float: left;
+}
+
+#logo{
+    font-size: larger;
+}
+
+#cart, #filter {
+    float: right;
+}
