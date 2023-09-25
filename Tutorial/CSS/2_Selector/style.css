@@ -1,0 +1,14 @@
+/* Tag */
+h1{
+    color: red;
+}
+
+/* Class */
+.class_selector{
+    background-color: lightblue;
+}
+
+/* ID */
+#id_selector{
+    background: yellow;
+}

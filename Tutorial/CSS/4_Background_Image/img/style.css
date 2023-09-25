@@ -1,0 +1,8 @@
+body{
+    /* background-image: url("image.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right; */
+
+    background: #dfdfdf url("image.jpg") no-repeat fixed right;
+}
