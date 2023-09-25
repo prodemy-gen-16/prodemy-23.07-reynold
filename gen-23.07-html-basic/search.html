@@ -5,20 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
 </head>
+
+<style>
+    .artist
+    {
+        border-radius: 50%;
+    }
+</style>
+
 <body>
 
-    <!-- NavBar Section -->
-    <nav>
+    <!-- Left Section -->
+    <div style="display: inline-block; width: 325px;">
 
+        <!-- NavBar Section -->
+        <nav>
+
+            <div>
+                <img src="svg/home.svg" alt="home_icon" height="14px">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div>
+                <img src="svg/search.svg" alt="search_icon" height="14px">
+                <a href="search.html">Search</a>
+            </div>
+            
+        </nav>
+
+        <br>
+
+        <!-- Library Section -->
         <div>
-            <a href="index.html">Home</a>
+
+            <div>
+                <img src="svg/library.svg" alt="search_icon" height="14px">
+                <span>Your Library</span>
+            </div>
+
+            <div>
+                <button>Playlist</button>
+                <button>Artist</button>
+                <button>Albums</button>
+                <button>Podcasts & Shows</button>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Search in Your Library" width="">
+                <select>
+                    <optgroup label="Sort by">
+                        <option value="recents">Recents</option>
+                        <option value="recently_added" selected>Recently Added</option>
+                        <option value="alphabetical">Alphabetical</option>
+                        <option value="creator">Creator</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div style="height: 600px;">
+                <iframe src="components/library.html" frameborder="0" style="overflow:hidden; height:100%; width:100%;" height="100%" width="100%"></iframe>
+            </div>
+
         </div>
 
+    </div>
+
+    <!-- Right Section -->
+    <div style="display: inline-block; vertical-align: top">
+
         <div>
-            <a href="search.html">Search</a>
+
+            <div>
+                <h3>Recent searches</h3>
+            </div>
+            
+            <div>
+                <div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/h1_key_rose_blossom.jpg" alt="h1_key_rose_blossom" width="100px">
+                        <div>
+                            <span> <b>Rose Blossom</b> </span> <br>
+                            <span>H1-KEY</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: inline-block;">
+                        <img src="/img/album_nmixx_expergo.jpg" alt="expérgo" width="100px">
+                        <div>
+                            <span> <b>expérgo</b> </span> <br>
+                            <span>2023 &centerdot; NMIXX</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_coldplay.jpg" alt="artist_coldplay" width="100px">
+                        <div>
+                            <span> <b>Coldplay</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_itzy.jpg" alt="artist_itzy" width="100px">
+                        <div>
+                            <span> <b>ITZY</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_twice.jpg" alt="artist_twice" width="100px">
+                        <div>
+                            <span> <b>TWICE</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_misamo.jpg" alt="artist_misamo" width="100px">
+                        <div>
+                            <span> <b>MISAMO</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img src="/img/album_day6_shoot_me.jpg" alt="album_day6_shoot_me" width="100px">
+                        <div>
+                            <span> <b>Shoot Me : ...</b> </span> <br>
+                            <span>2018 &centerdot; DAY6</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_vcha.jpg" alt="artist_vcha" width="100px">
+                        <div>
+                            <span> <b>VCHA</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_yoasobi.jpg" alt="artist_yoasobi" width="100px">
+                        <div>
+                            <span> <b>YOASOBI</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <img class="artist" src="/img/artist_fifty_fifty.jpg" alt="artist_fifty_fifty" width="100px">
+                        <div>
+                            <span> <b>Fifty Fifty</b> </span> <br>
+                            <span>Artist</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-        
-    </nav>
+
+    </div>
     
 </body>
 </html>
