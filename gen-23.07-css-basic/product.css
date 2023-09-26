@@ -121,15 +121,3 @@ li{
     top: 20px;
     padding: 10px;
 }
-
-.twitter{
-    background: url("img/twitter.png") no-repeat;
-}
-
-.facebook{
-    background: url("img/facebook.png") no-repeat;
-}
-
-.linked_in{
-    background: url("img/linked-in.png") no-repeat;
-}
