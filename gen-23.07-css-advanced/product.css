@@ -1,71 +1,61 @@
 body{
-    font-family: DM Mono,"sans-serif";
     margin: 0;
 }
 
 .header{
     padding: 10px;
-    text-align: center;
     border-bottom: 1px solid #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#second_header{
-    height: 20px;
-}
-
-.header > div,
-.price_container > *{
-    display: inline-block;
-}
-
-#menu_burger{
-    float: left;
-}
-
-#logo{
+.logo{
     font-size: 24px;
 }
 
 .product_text{
-    float: left;
     font-size: 20px;
-}
-
-#cart,
-#filter,
-.add_to_cart {
-    float: right;
 }
 
 .product_list{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
     padding: 45px;
 }
 
 .product{
+    display: flex;
+    justify-content: space-between;
     width: 35%;
     border-radius: 10px;
     border: 1px solid #ededed;
-    margin-left: 10px;
+    margin-left: 45px;
     margin-top: 5px;
 }
 
 .image{
     width: 175px;
-    float: left;
+    margin-right: 25px;
 }
 
 .image_product{
     width: 160px;
     height: 240px;
-    float: left;
+    /* float: left; */
     border-radius: 10px;
 }
 
+.decription{
+    display: flex;
+    justify-content: center;
+}
+
 .description_containter{
-    margin-bottom: 90px;
+    height: 200px;
+    padding: 10px;
 }
 
 .description_containter a{
@@ -86,10 +76,12 @@ body{
 
 .price_container{
     padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .price {
-    float: left;
     font-size: larger;
     font-weight: bold;
 }
@@ -97,27 +89,16 @@ body{
 .footer{
     color: white;
     background-color: #132322;
-    padding-bottom: 40px;
-    padding-left: 50px;
+    padding: 30px;
     display: block;
     position: relative;
 }
 
-footer div {
-    clear: both;
-}
-
 li{
-    display: block;
-    float: left;
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
+    margin-right: 20px;
 }
 
 .social{
     list-style-type: none;
-    left: 10px;
-    top: 20px;
-    padding: 10px;
+    display: flex;
 }
