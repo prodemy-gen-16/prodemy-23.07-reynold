@@ -70,10 +70,11 @@ body{
     text-decoration: none;
     color: #18583a;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .description_containter a:hover{
-    color: aquamarine;
+    color: rgb(34, 197, 142);
 }
 
 .decription_title{
