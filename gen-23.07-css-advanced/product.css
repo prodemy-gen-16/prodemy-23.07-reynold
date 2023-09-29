@@ -24,6 +24,7 @@ body{
     flex-wrap: wrap;
     flex-direction: row;
     padding-top: 45px;
+    padding-bottom: 45px;
     padding-left: 15px;
     padding-right: 15px;
 }
