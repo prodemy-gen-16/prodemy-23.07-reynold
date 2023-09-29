@@ -10,6 +10,7 @@
     <div class="container min-w-full mx-0">
 
         <header>
+            <!-- First Header -->
             <div class="flex items-center justify-between p-3 border-b-2 border-gray-100">
 
                 <div class="h-7 w-7">
@@ -28,7 +29,8 @@
 
             </div>
 
-            <div class="flex p-4 border-b-2 border-gray-100">
+            <!-- Second Header -->
+            <div class="p-4 border-b-2 border-gray-100">
 
                 <div class="flex">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -40,27 +42,32 @@
             </div>
         </header>
 
-        <section class="flex min-w-full items-center justify-center mx-0 my-auto">
+        <section class="flex justify-center">
             <div class="w-3/4 flex flex-col m-10 rounded-lg border-2 border-gray-100 sm:flex-row">
 
                 <div>
-                    <img class="max-h-md sm:rounded-tl-lg sm:rounded-bl-lg" src="/public/img/backpack.jpg" alt="" />
+                    <img class="sm:rounded-tl-lg sm:rounded-bl-lg" src="/public/img/backpack.jpg" alt="" />
                 </div>
 
                 <div class="flex flex-col justify-start p-6">
                     <div class="mb-7">
+                        <!-- Title -->
                         <h5 class="mb-2 text-xl font-medium text-lime-950">
                             Sauce Labs Backpack
                         </h5>
+                        <!-- Description -->
                         <p class="text-ellipsis overflow-hidden">
                             carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.
                         </p>
                     </div>
+
                     <div>
+                        <!-- Price -->
                         <p class="mb-7 text-xl font-semibold text-lime-950">
                             $29.99
                         </p>
-                        <button class="w-full h-8 sm:w-36 px-5 border-x border-y border-black rounded-md">
+                        <!-- Button -->
+                        <button class="w-full h-8 px-5 border-x border-y border-black rounded-md sm:w-36">
                             Add to Cart
                         </button>
                     </div>
@@ -69,9 +76,10 @@
             </div>
         </section>
 
-        <footer class="bg-emerald-950 w-full flex items-end sm:intem-center">
+        <footer class="flex bg-emerald-950 w-full mb-0">
             <div class="p-11">
-                <ul class="list-none flex mb-4 justify-center sm:justify-start">
+                <!-- Social Media -->
+                <ul class="list-none flex justify-center mb-4 sm:justify-start">
                     <li class="mr-4">
                         <img src="/public/img/twitter.png" alt="">
                     </li>
@@ -82,6 +90,8 @@
                         <img src="/public/img/linked-in.png" alt="">
                     </li>
                 </ul>
+
+                <!-- Copyright -->
                 <p class="text-white flex justify-center sm:justify-start">&copy; 2023 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy</p>
             </div>
         </footer>
