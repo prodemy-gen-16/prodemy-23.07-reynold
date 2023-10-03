@@ -48,20 +48,20 @@
                 <img
                     class="thumbnail w-[80px] h-[120px] object-cover m-2"
                     src="img/backpack.jpg"
-                    alt="Thumbnail 1"
-                    onclick="changeImage('img/backpack.jpg')"
+                    alt=""
+                    onclick="changeImage('img/backpack.jpg', this)"
                 />
                 <img
                     class="thumbnail w-[80px] h-[120px] object-cover m-2"
                     src="https:/images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain"
-                    alt="Thumbnail 2"
-                    onclick="changeImage('https:/images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain')"
+                    alt=""
+                    onclick="changeImage('https:/images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain', this)"
                 />
                 <img
                     class="thumbnail w-[80px] h-[120px] object-cover m-2"
                     src="https:/i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg"
-                    alt="Thumbnail 3"
-                    onclick="changeImage('https:/i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg')"
+                    alt=""
+                    onclick="changeImage('https:/i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg', this)"
                 />
             </div>
 
@@ -117,9 +117,18 @@
         </footer>
 
         <script>
-            function changeImage(imageSrc) {
-                let mainImage = document.getElementById("main-image");
-                mainImage.src = imageSrc;
+            function changeImage(imageSrc, thumbnail) 
+            {
+                const thumbnails = document.querySelectorAll('.thumbnail');
+                thumbnails.forEach((thumb) => {
+                    thumb.classList.remove('border-2');
+                    thumb.classList.remove('border-gray-400');
+                })
+                
+                thumbnail.classList.add('border-2');
+                thumbnail.classList.add('border-gray-400');
+
+                document.getElementById("main-image").src = imageSrc;
             }
         </script>
 
