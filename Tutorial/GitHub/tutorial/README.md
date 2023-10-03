@@ -1,2 +1,0 @@
-# tutorial
-ini tutorial sekolahkoding
