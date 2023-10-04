@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backpack</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer components{
+            .thumb-img{
+                @apply w-[80px] h-[120px] object-cover rounded-lg
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container min-w-full mx-0">
@@ -46,19 +53,19 @@
             <!-- Preview Image -->
             <div class="flex flex-row mb-4 sm:mr-4 sm:flex-col">
                 <img
-                    class="thumbnail w-[80px] h-[120px] object-cover rounded-lg mr-2 sm:mb-2"
+                    class="thumbnail thumb-img mr-2 sm:mb-2"
                     src="img/backpack.jpg"
                     alt=""
                     onclick="changeImage('img/backpack.jpg', this)"
                 />
                 <img
-                    class="thumbnail w-[80px] h-[120px] object-cover rounded-lg mr-2 sm:mb-2"
+                    class="thumbnail thumb-img mr-2 sm:mb-2"
                     src="https:/images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain"
                     alt=""
                     onclick="changeImage('https:/images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain', this)"
                 />
                 <img
-                    class="thumbnail w-[80px] h-[120px] object-cover rounded-lg"
+                    class="thumbnail thumb-img"
                     src="https:/i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg"
                     alt=""
                     onclick="changeImage('https:/i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg', this)"
