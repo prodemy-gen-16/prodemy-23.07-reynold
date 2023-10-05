@@ -12,13 +12,10 @@ function getProduct() {
     .then(data => {
       productContainer.innerHTML = '';
 
-      if (data.products.length === 0) 
-      {
+      if (data.products.length === 0) {
         console.log(data);
         productContainer.innerHTML = '<div>Product not found</div>';
-      } 
-      else 
-      {
+      } else {
         console.log(data);
         data.products.forEach(product => {
           const displayProduct = `
