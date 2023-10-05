@@ -10,17 +10,23 @@ function getProduct() {
   fetch(`https://dummyjson.com/products/search?q=${name}`)
     .then( (res) => res.json() )
     .then(data => {
-      console.log(data);
-
       productContainer.innerHTML = '';
 
-      data.products.forEach(product => {
-        const displayProduct = `
+      if (data.products.length === 0) 
+      {
+        console.log(data);
+        productContainer.innerHTML = '<div>Product not found</div>';
+      } 
+      else 
+      {
+        console.log(data);
+        data.products.forEach(product => {
+          const displayProduct = `
           <div>${product.title}</div>
-        `;
-        productContainer.innerHTML += displayProduct;
-      });
-
+          `;
+          productContainer.innerHTML += displayProduct;
+        });
+      }
     })
     .catch( (err) => {
       console.error("Error fetching data: ", err);
