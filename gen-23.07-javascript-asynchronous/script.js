@@ -1,11 +1,9 @@
 const productContainer = document.querySelector(".productBox");
-const name = document.querySelector("#productName")
 
 document.querySelector("#search").addEventListener("click", getProduct);
 
 function getProduct() {
   const name = document.querySelector("#productName").value;
-  // const productName = lowerCaseName(name);
 
   fetch(`https://dummyjson.com/products/search?q=${name}`)
     .then( (res) => res.json() )
