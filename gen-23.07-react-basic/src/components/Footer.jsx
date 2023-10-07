@@ -5,13 +5,13 @@ function Footer() {
         {/* Social Media */}
         <ul className="list-none flex justify-center mb-4 sm:justify-start">
           <li className="mr-4">
-            <img src="/gen-23.07-javascript-basic/img/twitter.png" alt="" />
+            <img src="../assets/img/twitter.png" alt="" />
           </li>
           <li className="mr-4">
-            <img src="/gen-23.07-javascript-basic/img/facebook.png" alt="" />
+            <img src="../assets/img/facebook.png" alt="" />
           </li>
           <li className="mr-4">
-            <img src="/gen-23.07-javascript-basic/img/linked-in.png" alt="" />
+            <img src="../assets/img/linked-in.png" alt="" />
           </li>
         </ul>
 
