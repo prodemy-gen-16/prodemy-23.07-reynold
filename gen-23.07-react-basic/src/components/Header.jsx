@@ -40,7 +40,7 @@ function Header() {
           <div className="ml-1 text-xl font-semibold">Products</div>
 
           <div>
-            <select name="filter">
+            <select className="border-2 border-gray-200 rounded-sm" name="filter">
               <option value="name-asc">Name (A to Z)</option>
               <option value="name-des">Name (Z to A)</option>
               <option value="price-asc">Price (low to high)</option>
