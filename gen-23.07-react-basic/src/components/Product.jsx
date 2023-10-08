@@ -1,7 +1,7 @@
 function Product() {
   return (
     <section className="flex justify-center">
-      <div className="w-3/4 flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row">
+      <div className="w-[500px] flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row">
         {/* Image */}
         <img
           className="lg:w-[160px] object-cover sm:w-2/5 sm:rounded-tl-lg sm:rounded-bl-lg"
