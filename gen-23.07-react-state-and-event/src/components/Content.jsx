@@ -12,61 +12,64 @@ const { useState } = React;
 function Product() {
   const initialData = [
     {
-      title: "Jacket",
+      title: "Backpack",
       description:
-        "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
-      price: "$49.99",
-      image: JacketImage,
+        "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
+      price: "29.99",
+      image: BackpackImage,
     },
     {
       title: "Bike Light",
       description:
         "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
-      price: "$9.99",
+      price: "9.99",
       image: BikeLightImage,
-    },
-    {
-      title: "White Shirt",
-      description:
-        "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
-      price: "$15.99",
-      image: WhiteShirtImage,
     },
     {
       title: "Black Shirt",
       description:
         "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.",
-      price: "$15.99",
+      price: "15.99",
       image: BlackShirtImage,
     },
     {
-      title: "Backpack",
+      title: "Jacket",
       description:
-        "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
-      price: "$29.99",
-      image: BackpackImage,
+        "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
+      price: "49.99",
+      image: JacketImage,
     },
     {
       title: "Sweater",
       description:
         "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.",
-      price: "$7.99",
+      price: "7.99",
       image: SweaterImage,
     },
+    {
+      title: "White Shirt",
+      description:
+        "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
+      price: "15.99",
+      image: WhiteShirtImage,
+    },
   ];
+
   const [data, setData] = useState(initialData);
 
-  const sortAsc = () => {
+  // Sort Products by Lowest Price
+  const sortPriceLowest = () => {
     const sortedData = [...data].sort((a, b) => {
-      return a.title.localeCompare(b.title);
+      return parseFloat(a.price) - parseFloat(b.price);
     });
 
     setData(sortedData);
   };
 
-  const sortDes = () => {
+  // Sort Products by Highest Price
+  const sortPriceHighest = () => {
     const sortedData = [...data].sort((a, b) => {
-      return b.title.localeCompare(a.title);
+      return parseFloat(b.price) - parseFloat(a.price);
     });
 
     setData(sortedData);
@@ -74,22 +77,24 @@ function Product() {
 
   return (
     <>
-      <div className="w-1/4 mx-auto gap-x-10 flex my-10">
+      {/* Sorted Buttons */}
+      <div className="w-1/4 mx-auto gap-x-5 flex my-5">
         <button
           className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
-          onClick={sortAsc}
+          onClick={sortPriceLowest}
         >
-          Sort Name (A to Z)
+          Price Lowest
         </button>
         <button
           className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
-          onClick={sortDes}
+          onClick={sortPriceHighest}
         >
-          Sort Name (Z to A)
+          Price Highest
         </button>
       </div>
 
-      <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 my-10">
+      {/* Product List */}
+      <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 my-5">
         {data.map((item, index) => (
           <div
             className="flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row"
@@ -117,7 +122,7 @@ function Product() {
               <div className="flex flex-row justify-between">
                 {/* Price */}
                 <p className="text-xl font-semibold text-lime-950">
-                  {item.price}
+                  ${item.price}
                 </p>
                 {/* Button */}
                 <button className="w-36 h-8 px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white">
