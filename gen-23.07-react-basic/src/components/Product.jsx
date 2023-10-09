@@ -1,4 +1,5 @@
-function Product() {
+function Product(props) {
+  const {children = "{Product Name}"} = props;
   return (
     <section className="flex justify-center">
       <div className="w-[500px] flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row">
@@ -12,8 +13,9 @@ function Product() {
         <div className="flex flex-col justify-start p-6">
           <div className="mb-8">
             {/* Title */}
-            <h5 className="mb-2 text-xl font-medium text-lime-950">
-              Sauce Labs Backpack
+            <h5 className="mb-2 text-xl font-medium text-lime-950 hover:text-emerald-500">
+              {/* Sauce Labs Backpack */}
+              {children}
             </h5>
             {/* Description */}
             <p className="text-ellipsis overflow-hidden">
