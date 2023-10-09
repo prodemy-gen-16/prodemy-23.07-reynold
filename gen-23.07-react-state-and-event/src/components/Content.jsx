@@ -43,7 +43,7 @@ function Product() {
         "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.",
       price: "15.99",
       image: BlackShirtImage,
-      releaseDate: new Date("2023-10-25")
+      releaseDate: new Date("2022-10-25")
         .toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
