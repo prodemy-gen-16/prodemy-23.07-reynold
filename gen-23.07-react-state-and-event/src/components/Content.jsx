@@ -55,7 +55,6 @@ function Product() {
     },
   ];
   const [data, setData] = useState(initialData);
-  const [sortOrder, setSortOrder] = useState("ascending");
 
   const sortAsc = () => {
     const sortedData = [...data].sort((a, b) => {
@@ -63,7 +62,6 @@ function Product() {
     });
 
     setData(sortedData);
-    setSortOrder(sortOrder === "ascending" ? "descending" : "ascending");
   };
 
   const sortDes = () => {
@@ -72,7 +70,6 @@ function Product() {
     });
 
     setData(sortedData);
-    setSortOrder(sortOrder === "ascending" ? "descending" : "ascending");
   };
 
   return (
