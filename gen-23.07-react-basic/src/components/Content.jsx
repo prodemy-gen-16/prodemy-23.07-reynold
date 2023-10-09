@@ -10,7 +10,7 @@ function Product(props) {
     title = "{Product Name}",
     description = "{Description}",
     price = "{Price}",
-    image,
+    image
   } = props;
   return (
     <a href="#">
