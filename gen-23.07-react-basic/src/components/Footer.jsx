@@ -1,3 +1,7 @@
+import TwitterLogo from '../img/twitter.png';
+import FacebookLogo from '../img/facebook.png';
+import LinkedInLogo from '../img/linked-in.png';
+
 function Footer() {
   return (
     <div className="flex bg-emerald-950 w-full mb-0">
@@ -5,13 +9,13 @@ function Footer() {
         {/* Social Media */}
         <ul className="list-none flex justify-center mb-4 sm:justify-start">
           <li className="mr-4">
-            <img src="../assets/img/twitter.png" alt="" />
+            <img src={TwitterLogo} alt="" />
           </li>
           <li className="mr-4">
-            <img src="../assets/img/facebook.png" alt="" />
+            <img src={FacebookLogo} alt="" />
           </li>
           <li className="mr-4">
-            <img src="../assets/img/linked-in.png" alt="" />
+            <img src={LinkedInLogo} alt="" />
           </li>
         </ul>
 
