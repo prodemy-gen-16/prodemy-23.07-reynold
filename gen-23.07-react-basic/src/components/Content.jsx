@@ -50,7 +50,7 @@ function Content() {
   return (
     <section
       id="Projects"
-      className="w-3/4 max-w- mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 mt-10 mb-10"
+      className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 mt-10 mb-10"
     >
       <Product
         title={"Backpack"}
