@@ -17,6 +17,7 @@ function Product() {
         "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
       price: "29.99",
       image: BackpackImage,
+      releaseDate: new Date("2023-10-09").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
     {
       title: "Bike Light",
@@ -24,6 +25,7 @@ function Product() {
         "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
       price: "9.99",
       image: BikeLightImage,
+      releaseDate: new Date("2023-09-27").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
     {
       title: "Black Shirt",
@@ -31,6 +33,7 @@ function Product() {
         "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.",
       price: "15.99",
       image: BlackShirtImage,
+      releaseDate: new Date("2023-10-25").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
     {
       title: "Jacket",
@@ -38,6 +41,7 @@ function Product() {
         "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
       price: "49.99",
       image: JacketImage,
+      releaseDate: new Date("2023-08-12").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
     {
       title: "Sweater",
@@ -45,6 +49,7 @@ function Product() {
         "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.",
       price: "7.99",
       image: SweaterImage,
+      releaseDate: new Date("2023-02-01").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
     {
       title: "White Shirt",
@@ -52,6 +57,7 @@ function Product() {
         "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
       price: "15.99",
       image: WhiteShirtImage,
+      releaseDate: new Date("2023-10-10").toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}),
     },
   ];
 
@@ -68,8 +74,19 @@ function Product() {
 
   // Sort Products by Highest Price
   const sortPriceHighest = () => {
+    console.log("Berhasil");
     const sortedData = [...data].sort((a, b) => {
       return parseFloat(b.price) - parseFloat(a.price);
+    });
+
+    setData(sortedData);
+  };
+
+  // Sort Products by Ascending Date
+  const sortDateAsc = () => {
+    console.log("Berhasil");
+    const sortedData = [...data].sort((a, b) => {
+      return a.getTime() - b.getTime();
     });
 
     setData(sortedData);
@@ -78,18 +95,26 @@ function Product() {
   return (
     <>
       {/* Sorted Buttons */}
-      <div className="w-1/4 mx-auto gap-x-5 flex my-5">
+      <div className="w-3/4 mx-auto flex justify-end gap-x-5 my-5">
         <button
           className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
           onClick={sortPriceLowest}
         >
-          Price Lowest
+          Low to High
         </button>
+
         <button
           className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
           onClick={sortPriceHighest}
         >
-          Price Highest
+          High to Low
+        </button>
+
+        <button
+          className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          onClick={sortDateAsc}
+        >
+          Latest
         </button>
       </div>
 
@@ -108,11 +133,15 @@ function Product() {
             />
 
             <div className="flex flex-col justify-between p-6">
-              <div>
+              <div className="mb-10">
                 {/* Title */}
                 <h5 className="mb-2 text-xl font-medium text-lime-950 hover:text-emerald-500">
                   {item.title}
                 </h5>
+                {/* Release Date */}
+                <p className="mb-2 text-sm font-light text-gray-700">
+                  {item.releaseDate.toString()}
+                </p>
                 {/* Description */}
                 <p className="text-ellipsis overflow-hidden">
                   {item.description}
