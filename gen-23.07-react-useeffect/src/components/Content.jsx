@@ -84,12 +84,14 @@ function Product() {
   ];
 
   const [data, setData] = useState(initialData);
+  const [selectedSortOption, setSelectedSortOption] = useState(null);
   useEffect(() => {
     sortRecent();
   }, []);
 
   // Sort Products by Lowest Price
   const sortLowPrice = () => {
+    setSelectedSortOption("lowToHigh");
     const sortedData = [...data].sort((a, b) => {
       return parseFloat(a.price) - parseFloat(b.price);
     });
@@ -98,6 +100,7 @@ function Product() {
 
   // Sort Products by Highest Price
   const sortHighPrice = () => {
+    setSelectedSortOption("highToLow");
     const sortedData = [...data].sort((a, b) => {
       return parseFloat(b.price) - parseFloat(a.price);
     });
@@ -106,6 +109,7 @@ function Product() {
 
   // Sort Products by Recent Date
   const sortRecent = () => {
+    setSelectedSortOption("recent");
     const sortedData = [...data].sort((a, b) => {
       return new Date(a.releaseDate) - new Date(b.releaseDate);
     });
@@ -132,21 +136,33 @@ function Product() {
         </svg>
 
         <button
-          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          className={`w-auto px-5 border-x border-y border-emerald-950 rounded-md ${
+            selectedSortOption === "lowToHigh"
+              ? "bg-emerald-950 text-white"
+              : "hover:bg-emerald-950 hover:text-white"
+          }`}
           onClick={sortLowPrice}
         >
           Low to High
         </button>
 
         <button
-          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          className={`w-auto px-5 border-x border-y border-emerald-950 rounded-md ${
+            selectedSortOption === "highToLow"
+              ? "bg-emerald-950 text-white"
+              : "hover:bg-emerald-950 hover:text-white"
+          }`}
           onClick={sortHighPrice}
         >
           High to Low
         </button>
 
         <button
-          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          className={`w-auto px-5 border-x border-y border-emerald-950 rounded-md ${
+            selectedSortOption === "recent"
+              ? "bg-emerald-950 text-white"
+              : "hover:bg-emerald-950 hover:text-white"
+          }`}
           onClick={sortRecent}
         >
           Latest
