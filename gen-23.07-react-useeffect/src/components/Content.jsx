@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 import BackpackImage from "../img/backpack.jpg";
 import BikeLightImage from "../img/bike-light.jpg";
@@ -6,8 +6,6 @@ import BlackShirtImage from "../img/black-shirt.jpg";
 import JacketImage from "../img/jacket.jpg";
 import SweaterImage from "../img/sweater.jpg";
 import WhiteShirtImage from "../img/white-shirt.jpg";
-
-const { useState } = React;
 
 function Product() {
   const initialData = [
@@ -77,8 +75,7 @@ function Product() {
         "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
       price: "15.99",
       image: WhiteShirtImage,
-      releaseDate: new Date("2023-10-10")
-      .toLocaleDateString("en-us", {
+      releaseDate: new Date("2023-10-10").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -87,6 +84,9 @@ function Product() {
   ];
 
   const [data, setData] = useState(initialData);
+  useEffect(() => {
+    sortRecent();
+  }, []);
 
   // Sort Products by Lowest Price
   const sortLowPrice = () => {
