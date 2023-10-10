@@ -17,8 +17,7 @@ function Product() {
         "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
       price: "29.99",
       image: BackpackImage,
-      releaseDate: new Date("2023-10-09")
-        .toLocaleDateString("en-us", {
+      releaseDate: new Date("2023-10-09").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -30,8 +29,7 @@ function Product() {
         "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
       price: "9.99",
       image: BikeLightImage,
-      releaseDate: new Date("2023-09-27")
-        .toLocaleDateString("en-us", {
+      releaseDate: new Date("2023-09-27").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -43,8 +41,7 @@ function Product() {
         "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.",
       price: "15.99",
       image: BlackShirtImage,
-      releaseDate: new Date("2022-10-25")
-        .toLocaleDateString("en-us", {
+      releaseDate: new Date("2022-10-25").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -56,8 +53,7 @@ function Product() {
         "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
       price: "49.99",
       image: JacketImage,
-      releaseDate: new Date("2023-08-12")
-        .toLocaleDateString("en-us", {
+      releaseDate: new Date("2023-08-12").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -69,8 +65,7 @@ function Product() {
         "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.",
       price: "7.99",
       image: SweaterImage,
-      releaseDate: new Date("2023-02-01")
-        .toLocaleDateString("en-us", {
+      releaseDate: new Date("2023-02-01").toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -83,7 +78,7 @@ function Product() {
       price: "15.99",
       image: WhiteShirtImage,
       releaseDate: new Date("2023-10-10")
-        .toLocaleDateString("en-us", {
+      .toLocaleDateString("en-us", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -94,7 +89,7 @@ function Product() {
   const [data, setData] = useState(initialData);
 
   // Sort Products by Lowest Price
-  const sortPriceLowest = () => {
+  const sortLowPrice = () => {
     const sortedData = [...data].sort((a, b) => {
       return parseFloat(a.price) - parseFloat(b.price);
     });
@@ -102,43 +97,57 @@ function Product() {
   };
 
   // Sort Products by Highest Price
-  const sortPriceHighest = () => {
+  const sortHighPrice = () => {
     const sortedData = [...data].sort((a, b) => {
       return parseFloat(b.price) - parseFloat(a.price);
     });
     setData(sortedData);
   };
 
-  // Sort Products by Ascending Date
-  const sortDateAsc = () => {
+  // Sort Products by Recent Date
+  const sortRecent = () => {
     const sortedData = [...data].sort((a, b) => {
       return new Date(a.releaseDate) - new Date(b.releaseDate);
     });
-    console.log(sortedData);
     setData(sortedData);
   };
 
   return (
     <>
-      {/* Sorted Buttons */}
-      <div className="w-3/4 mx-auto flex justify-end gap-x-5 my-5">
+      {/* Filter/Sort */}
+      <div className="w-3/4 h-8 mx-auto flex gap-x-5 my-5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z"
+          />
+        </svg>
+
         <button
-          className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
-          onClick={sortPriceLowest}
+          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          onClick={sortLowPrice}
         >
           Low to High
         </button>
 
         <button
-          className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
-          onClick={sortPriceHighest}
+          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          onClick={sortHighPrice}
         >
           High to Low
         </button>
 
         <button
-          className="w-44 h-8 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
-          onClick={sortDateAsc}
+          className="w-auto px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white"
+          onClick={sortRecent}
         >
           Latest
         </button>
