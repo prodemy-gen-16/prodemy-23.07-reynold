@@ -86,33 +86,22 @@ function Product() {
   const [data, setData] = useState(initialData);
   const [selectedSortOption, setSelectedSortOption] = useState(null);
   useEffect(() => {
-    sortRecent();
+    sortProducts("recent");
   }, []);
 
-  // Sort Products by Lowest Price
-  const sortLowPrice = () => {
-    setSelectedSortOption("lowToHigh");
-    const sortedData = [...data].sort((a, b) => {
-      return parseFloat(a.price) - parseFloat(b.price);
-    });
-    setData(sortedData);
-  };
+  const sortProducts = (sortType) => {
+    setSelectedSortOption(sortType);
 
-  // Sort Products by Highest Price
-  const sortHighPrice = () => {
-    setSelectedSortOption("highToLow");
     const sortedData = [...data].sort((a, b) => {
-      return parseFloat(b.price) - parseFloat(a.price);
+      if (sortType === "lowToHigh") {
+        return parseFloat(a.price) - parseFloat(b.price); // Sort Products by Lowest Price
+      } else if (sortType === "highToLow") {
+        return parseFloat(b.price) - parseFloat(a.price); // Sort Products by Highest Price
+      } else if (sortType === "recent") {
+        return new Date(a.releaseDate) - new Date(b.releaseDate); // Sort Products by Recent Date
+      }
     });
-    setData(sortedData);
-  };
 
-  // Sort Products by Recent Date
-  const sortRecent = () => {
-    setSelectedSortOption("recent");
-    const sortedData = [...data].sort((a, b) => {
-      return new Date(a.releaseDate) - new Date(b.releaseDate);
-    });
     setData(sortedData);
   };
 
@@ -141,7 +130,7 @@ function Product() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={sortLowPrice}
+          onClick={() => sortProducts("lowToHigh")}
         >
           Low to High
         </button>
@@ -152,7 +141,7 @@ function Product() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={sortHighPrice}
+          onClick={() => sortProducts("highToLow")}
         >
           High to Low
         </button>
@@ -163,7 +152,7 @@ function Product() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={sortRecent}
+          onClick={() => sortProducts("recent")}
         >
           Latest
         </button>
