@@ -31,6 +31,25 @@ function Products() {
 
   return (
     <>
+      {/* Second Header */}
+      <div className="p-4 border-b-2 border-gray-100">
+        <div className="flex justify-between">
+          <div className="ml-1 text-xl font-semibold">Products</div>
+
+          <div>
+            <select
+              className="border-2 border-gray-200 rounded-sm"
+              name="filter"
+            >
+              <option value="name-asc">Name (A to Z)</option>
+              <option value="name-des">Name (Z to A)</option>
+              <option value="price-asc">Price (low to high)</option>
+              <option value="name-des">Price (high to low)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       {/* Filter/Sort */}
       <div className="w-3/4 h-8 mx-auto flex gap-x-5 my-5">
         <svg
