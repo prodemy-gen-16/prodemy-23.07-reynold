@@ -5,7 +5,11 @@
       "title": "Backpack",
       "description": "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
       "price": "29.99",
-      "image": "https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg",
+        "https://images.asos-media.com/products/chernyj-fakturnyj-ryukzak-asos/8082738-1-black?$n_960w$&wid=952&fit=constrain",
+        "https://i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg"
+      ],
       "releaseDate": "October 9, 2023"
     },
     {
@@ -13,7 +17,9 @@
       "title": "Bike Light",
       "description": "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.",
       "price": "9.99",
-      "image": "https://www.saucedemo.com/static/media/bike-light-1200x1500.37c843b0.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/bike-light-1200x1500.37c843b0.jpg"
+      ],
       "releaseDate": "September 27, 2023"
     },
     {
@@ -21,7 +27,9 @@
       "title": "Black Shirt",
       "description": "Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.",
       "price": "15.99",
-      "image": "https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c2599ac5.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/bolt-shirt-1200x1500.c2599ac5.jpg"
+      ],
       "releaseDate": "October 25, 2022"
     },
     {
@@ -29,7 +37,9 @@
       "title": "Jacket",
       "description": "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
       "price": "49.99",
-      "image": "https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.51d7ffaf.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/sauce-pullover-1200x1500.51d7ffaf.jpg"
+      ],
       "releaseDate": "August 12, 2023"
     },
     {
@@ -37,7 +47,9 @@
       "title": "Sweater",
       "description": "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.",
       "price": "7.99",
-      "image": "https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg"
+      ],
       "releaseDate": "February 1, 2023"
     },
     {
@@ -45,7 +57,9 @@
       "title": "White Shirt",
       "description": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
       "price": "15.99",
-      "image": "https://www.saucedemo.com/static/media/red-tatt-1200x1500.30dadef4.jpg",
+      "image": [
+        "https://www.saucedemo.com/static/media/red-tatt-1200x1500.30dadef4.jpg"
+      ],
       "releaseDate": "October 10, 2023"
     }
   ]
