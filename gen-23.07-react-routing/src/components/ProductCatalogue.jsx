@@ -103,15 +103,15 @@ function ProductCatalogue() {
 
       {/* Products List */}
       <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 my-5">
-        {data.map((item, index) => (
+        {data.map((item) => (
           <div
             className="flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row"
-            key={index}
+            key={item.id}
           >
             {/* Image */}
             <img
               className="lg:w-[160px] object-cover sm:w-2/5 sm:rounded-tl-lg sm:rounded-bl-lg"
-              src={item.image}
+              src={item.image[0]}
               alt="Products"
             />
 
