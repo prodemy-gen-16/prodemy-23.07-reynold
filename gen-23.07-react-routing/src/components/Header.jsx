@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div>
+    <>
       <div className="flex items-center justify-between p-3 border-b-2 border-gray-100">
         {/* Menu Burger Icon*/}
         <div className="h-7 w-7">
@@ -34,22 +34,7 @@ function Header() {
           </svg>
         </div>
       </div>
-
-      <div className="p-4 border-b-2 border-gray-100">
-        <div className="flex justify-between">
-          <div className="ml-1 text-xl font-semibold">Products</div>
-
-          <div>
-            <select className="border-2 border-gray-200 rounded-sm" name="filter">
-              <option value="name-asc">Name (A to Z)</option>
-              <option value="name-des">Name (Z to A)</option>
-              <option value="price-asc">Price (low to high)</option>
-              <option value="name-des">Price (high to low)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
