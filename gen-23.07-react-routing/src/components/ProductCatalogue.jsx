@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import productData from "../data/ProductData.json";
 
-function Products() {
+function ProductCatalogue() {
   const initialData = productData.products;
 
   const [data, setData] = useState(initialData);
@@ -149,8 +149,4 @@ function Products() {
   );
 }
 
-function Content() {
-  return <Products />;
-}
-
-export default Content;
+export default ProductCatalogue;

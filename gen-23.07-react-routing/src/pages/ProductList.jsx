@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import Products from "../components/Products";
+import Products from "../components/ProductCatalogue";
 import Footer from "../components/Footer";
 
 function ProductList() {
