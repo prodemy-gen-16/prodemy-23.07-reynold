@@ -84,12 +84,15 @@ function Product() {
   ];
 
   const [data, setData] = useState(initialData);
-  const [selectedSortOption, setSelectedSortOption] = useState(null);
+  const [selectedSortOption, setSelectedSortOption] = useState();
+  
+  // Set Product Sorting by Recent Date by Default
   useEffect(() => {
     sortProducts("recent");
   }, []);
 
   const sortProducts = (sortType) => {
+    // Change Button Color When Selected
     setSelectedSortOption(sortType);
 
     const sortedData = [...data].sort((a, b) => {
@@ -98,7 +101,7 @@ function Product() {
       } else if (sortType === "highToLow") {
         return parseFloat(b.price) - parseFloat(a.price); // Sort Products by Highest Price
       } else if (sortType === "recent") {
-        return new Date(a.releaseDate) - new Date(b.releaseDate); // Sort Products by Recent Date
+        return new Date(b.releaseDate) - new Date(a.releaseDate); // Sort Products by Recent Date
       }
     });
 

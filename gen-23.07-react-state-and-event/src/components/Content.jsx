@@ -107,7 +107,7 @@ function Product() {
   // Sort Products by Recent Date
   const sortRecent = () => {
     const sortedData = [...data].sort((a, b) => {
-      return new Date(a.releaseDate) - new Date(b.releaseDate);
+      return new Date(b.releaseDate) - new Date(a.releaseDate);
     });
     setData(sortedData);
   };
