@@ -17,33 +17,34 @@ function ProductCard() {
   }, [thumbnails, selectedThumbnail]);
 
   const handleBackToCatalogue = () => {
-    navigate("/products")
-  }
+    navigate("/products");
+  };
 
   return (
     <div className="container min-w-full mx-0">
       {/* Second Header */}
-      <div className="p-4 border-b-2 border-gray-100">
-        <div className="flex">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-            />
-          </svg>
-          <button className="ml-1 text-green-900 hover:text-green-500"
-          onClick={() => handleBackToCatalogue()}>
-            Back to products
-          </button>
-        </div>
+      <div className="flex items-center p-4 border-b-2 border-gray-100">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-4 h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+          />
+        </svg>
+
+        <button
+          className="ml-1 text-green-900 hover:text-green-500"
+          onClick={() => handleBackToCatalogue()}
+        >
+          Back to products
+        </button>
       </div>
 
       <section className="flex flex-col m-10 justify-center items-center sm:items-start sm:flex-row">
