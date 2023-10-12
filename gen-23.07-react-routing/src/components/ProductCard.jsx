@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import productData from "../data/ProductData.json";
 
 function ProductCard() {
-  const data = productData.products[0];
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const data = productData.products[id - 1];
   const thumbnails = data.image;
 
   const [mainImageSrc, setMainImageSrc] = useState(thumbnails[0]);
@@ -11,6 +15,10 @@ function ProductCard() {
   useEffect(() => {
     setMainImageSrc(thumbnails[selectedThumbnail]);
   }, [thumbnails, selectedThumbnail]);
+
+  const handleBackToCatalogue = () => {
+    navigate("/products")
+  }
 
   return (
     <div className="container min-w-full mx-0">
@@ -31,9 +39,10 @@ function ProductCard() {
               d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
             />
           </svg>
-          <a href="#" className="ml-1 text-green-900 hover:text-green-500">
+          <button className="ml-1 text-green-900 hover:text-green-500"
+          onClick={() => handleBackToCatalogue()}>
             Back to products
-          </a>
+          </button>
         </div>
       </div>
 

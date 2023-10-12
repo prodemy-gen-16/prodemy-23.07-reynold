@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import productData from "../data/ProductData.json";
 
 function ProductCatalogue() {
+  const navigate = useNavigate();
+  
   const initialData = productData.products;
 
   const [data, setData] = useState(initialData);
   const [selectedSortOption, setSelectedSortOption] = useState();
 
+
   // Set Products Sorting by Recent Date by Default
   useEffect(() => {
-    sortProducts("recent");
+    handleSortProducts("recent");
   }, []);
 
-  const sortProducts = (sortType) => {
+  const handleSortProducts = (sortType) => {
     // Change Button Color When Selected
     setSelectedSortOption(sortType);
 
@@ -27,6 +31,10 @@ function ProductCatalogue() {
     });
 
     setData(sortedData);
+  };
+
+  const handleGoToDetail = (id) => {
+    navigate(`/products/${id}`)
   };
 
   return (
@@ -73,7 +81,7 @@ function ProductCatalogue() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={() => sortProducts("lowToHigh")}
+          onClick={() => handleSortProducts("lowToHigh")}
         >
           Low to High
         </button>
@@ -84,7 +92,7 @@ function ProductCatalogue() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={() => sortProducts("highToLow")}
+          onClick={() => handleSortProducts("highToLow")}
         >
           High to Low
         </button>
@@ -95,7 +103,7 @@ function ProductCatalogue() {
               ? "bg-emerald-950 text-white"
               : "hover:bg-emerald-950 hover:text-white"
           }`}
-          onClick={() => sortProducts("recent")}
+          onClick={() => handleSortProducts("recent")}
         >
           Latest
         </button>
@@ -119,7 +127,9 @@ function ProductCatalogue() {
               <div className="mb-10">
                 {/* Title */}
                 <h5 className="mb-2 text-xl font-medium text-lime-950 hover:text-emerald-500">
-                  <a href="">{item.title}</a>
+                  <button onClick={() => handleGoToDetail(item.id)}>
+                    {item.title}
+                  </button>
                 </h5>
                 {/* Release Date */}
                 <p className="mb-2 text-sm font-light text-gray-700">
