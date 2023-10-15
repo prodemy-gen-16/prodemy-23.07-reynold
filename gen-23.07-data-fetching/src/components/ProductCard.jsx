@@ -1,18 +1,22 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import productData from "../data/ProductData.json";
+import useSWR from "swr";
 
 function ProductCard() {
   const { id } = useParams();
 
-  const data = productData.products[id - 1];
-  const thumbnails = data.image;
+  const getProduct = (url) => axios.get(url).then((res) => res.data);
 
-  const [mainImageSrc, setMainImageSrc] = useState(thumbnails[0]);
+  const { data } = useSWR(`http://localhost:3000/products/${id}`, getProduct);
+
+  const thumbnails = data?.image;
+
+  const [mainImageSrc, setMainImageSrc] = useState(thumbnails?.[0]);
   const [selectedThumbnail, setSelectedThumbnail] = useState(0);
 
   useEffect(() => {
-    setMainImageSrc(thumbnails[selectedThumbnail]);
+    setMainImageSrc(thumbnails?.[selectedThumbnail]);
   }, [thumbnails, selectedThumbnail]);
 
   return (
@@ -45,7 +49,7 @@ function ProductCard() {
       <section className="flex flex-col m-10 justify-center items-center sm:items-start sm:flex-row">
         {/* Thumbnails */}
         <div className="flex flex-row mb-4 sm:mr-4 sm:flex-col">
-          {thumbnails.map((thumbnail, index) => (
+          {thumbnails?.map((thumbnail, index) => (
             <img
               key={index}
               className={`w-[80px] h-[120px] object-cover rounded-lg mr-2 sm:mb-2 ${
@@ -67,7 +71,7 @@ function ProductCard() {
             id="main-image"
             className="lg:max-w-[500px] lg:min-h-[625px] object-cover sm:w-2/5 sm:rounded-tl-lg sm:rounded-bl-lg"
             src={mainImageSrc}
-            alt=""
+            alt={data?.title}
           />
 
           {/* Product Details */}
@@ -75,22 +79,22 @@ function ProductCard() {
             <div className="mb-7">
               {/* Title */}
               <h5 className="mb-2 text-xl font-medium text-lime-950">
-                {data.title}
+                {data?.title}
               </h5>
               {/* Release Date */}
               <p className="mb-2 text-sm font-light text-gray-700">
-                {data.releaseDate}
+                {data?.releaseDate}
               </p>
               {/* Description */}
               <p className="text-ellipsis overflow-hidden">
-                {data.description}
+                {data?.description}
               </p>
             </div>
 
             <div>
               {/* Price */}
               <p className="mb-7 text-xl font-semibold text-lime-950">
-                ${data.price}
+                ${data?.price}
               </p>
               {/* Button */}
               <button className="w-full h-8 px-5 border-x border-y border-emerald-950 rounded-md sm:w-36 hover:bg-emerald-950 hover:text-white">
