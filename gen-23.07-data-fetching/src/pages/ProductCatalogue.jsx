@@ -1,12 +1,12 @@
 import Header from "../components/Header";
-import Products from "../components/ProductList";
+import ProductList from "../components/ProductList";
 import Footer from "../components/Footer";
 
 function ProductCatalogue() {
   return (
     <>
       <Header />
-      <Products />
+      <ProductList />
       <Footer />
     </>
   );
