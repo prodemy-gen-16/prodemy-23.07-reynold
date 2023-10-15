@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import productData from "../data/ProductData.json";
 
-function ProductCatalogue() {
+function ProductList() {
   const navigate = useNavigate();
 
   const initialData = productData.products;
@@ -130,4 +130,4 @@ function ProductCatalogue() {
   );
 }
 
-export default ProductCatalogue;
+export default ProductList;

@@ -1,8 +1,8 @@
 import Header from "../components/Header";
-import Products from "../components/ProductCatalogue";
+import Products from "../components/ProductList";
 import Footer from "../components/Footer";
 
-function ProductList() {
+function ProductCatalogue() {
   return (
     <>
       <Header />
@@ -12,4 +12,4 @@ function ProductList() {
   );
 }
 
-export default ProductList
+export default ProductCatalogue
