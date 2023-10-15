@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import productData from "../data/ProductData.json";
+import useSWR from "swr";
 
 function ProductList() {
   const navigate = useNavigate();
 
-  const initialData = productData.products;
+  const getProducts = (url) => axios.get(url).then((res) => res.data);
 
-  const [data, setData] = useState(initialData);
+  const { data } = useSWR("http://localhost:3000/products", getProducts, {
+    onSuccess: (data) =>
+      data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)),
+  });
+
   const [selectedSortOption, setSelectedSortOption] = useState();
-
-  // Set Products Sorting by Latest Date by Default
-  useEffect(() => {
-    sortProducts("latest");
-  }, []);
 
   const handleSortChange = (event) => {
     const sortType = event.target.value;
@@ -25,7 +25,7 @@ function ProductList() {
     // Change Button Color When Selected
     setSelectedSortOption(sortType);
 
-    const sortedData = [...data].sort((a, b) => {
+    data.sort((a, b) => {
       if (sortType === "lowToHigh") {
         return parseFloat(a.price) - parseFloat(b.price); // Sort Products by Lowest Price
       } else if (sortType === "highToLow") {
@@ -34,8 +34,6 @@ function ProductList() {
         return new Date(b.releaseDate) - new Date(a.releaseDate); // Sort Products by Latest Date
       }
     });
-
-    setData(sortedData);
   };
 
   const handleGoToDetail = (id) => {
@@ -82,15 +80,15 @@ function ProductList() {
 
       {/* Products List */}
       <div className="w-3/4 mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-14 my-5">
-        {data.map((item) => (
+        {data?.map(({ id, title, description, price, image, releaseDate }) => (
           <div
             className="flex flex-col rounded-lg border-2 border-gray-100 sm:flex-row"
-            key={item.id}
+            key={id}
           >
             {/* Image */}
             <img
               className="lg:max-w-[160px] lg:min-h-[200px] object-cover sm:w-2/5 sm:rounded-tl-lg sm:rounded-bl-lg"
-              src={item.image[0]}
+              src={image[0]}
               alt="Products"
             />
 
@@ -98,25 +96,19 @@ function ProductList() {
               <div className="mb-10">
                 {/* Title */}
                 <h5 className="mb-2 text-xl font-medium text-lime-950 hover:text-emerald-500">
-                  <button onClick={() => handleGoToDetail(item.id)}>
-                    {item.title}
-                  </button>
+                  <button onClick={() => handleGoToDetail(id)}>{title}</button>
                 </h5>
                 {/* Release Date */}
                 <p className="mb-2 text-sm font-light text-gray-700">
-                  {item.releaseDate.toString()}
+                  {releaseDate.toString()}
                 </p>
                 {/* Description */}
-                <p className="text-ellipsis overflow-hidden">
-                  {item.description}
-                </p>
+                <p className="text-ellipsis overflow-hidden">{description}</p>
               </div>
 
               <div className="flex flex-row justify-between">
                 {/* Price */}
-                <p className="text-xl font-semibold text-lime-950">
-                  ${item.price}
-                </p>
+                <p className="text-xl font-semibold text-lime-950">${price}</p>
                 {/* Button */}
                 <button className="w-36 h-8 px-5 border-x border-y border-emerald-950 rounded-md hover:bg-emerald-950 hover:text-white">
                   Add to Cart
