@@ -46,6 +46,7 @@ function ProductCard() {
         </Link>
       </div>
 
+      {/* Product Details */}
       <section className="flex flex-col m-10 justify-center items-center sm:items-start sm:flex-row">
         {/* Thumbnails */}
         <div className="flex flex-row mb-4 sm:mr-4 sm:flex-col">
@@ -74,7 +75,7 @@ function ProductCard() {
             alt={data?.title}
           />
 
-          {/* Product Details */}
+          {/* Product Information */}
           <div className="flex flex-col justify-start p-6">
             <div className="mb-7">
               {/* Title */}
