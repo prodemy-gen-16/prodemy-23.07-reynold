@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 function ShippingDetails() {
-  // const [name, setName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
+  const schema = yup.object().shape({
+    name: yup.string().required("Full Name is required"),
+    phone: yup.string().required("Phone Number is required"),
+    city: yup.string().required("City is required"),
+    payment: yup.string().required("Payment Method is required"),
+  });
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    city: "",
-    payment: "",
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmitForm = async (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="container min-w-full mx-0">
@@ -25,17 +36,24 @@ function ShippingDetails() {
         <div className="grid min-h-screen grid-cols-10">
           <div className="col-span-full lg:col-span-6">
             <div className="mt-8 p-5 mx-auto w-full max-w-lg rounded-lg border-2 border-gray-100">
-              <form action="" className="flex flex-col space-y-4">
+              <form
+                action=""
+                className="flex flex-col space-y-4"
+                onSubmit={handleSubmit(onSubmitForm)}
+              >
                 {/* Full Name */}
                 <div>
                   <input
                     type="name"
                     id="name"
                     name="name"
-                    value={formData.name}
+                    {...register("name")}
                     placeholder="Full Name"
-                    className="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm shadow-sm outline-none transition"
+                    className="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm"
                   />
+                  <p className="error text-sm text-red-500 ml-4">
+                    {errors.name?.message}
+                  </p>
                 </div>
 
                 {/* Phone Number */}
@@ -44,54 +62,37 @@ function ShippingDetails() {
                     type="text"
                     id="phone-number"
                     name="phone-number"
-                    value={formData.phone}
+                    {...register("phone")}
                     placeholder="Phone Number"
-                    className="block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 pr-10 text-sm shadow-sm outline-none transition"
+                    className="block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 pr-10 text-sm"
                   />
-                  <img
-                    src="/images/uQUFIfCYVYcLK0qVJF5Yw.png"
-                    alt=""
-                    className="absolute bottom-3 right-3 max-h-4"
-                  />
+                  <p className="error text-sm text-red-500 ml-4">
+                    {errors.phone?.message}
+                  </p>
                 </div>
 
-                {/* Address */}
+                {/* City */}
                 <div>
-                  <p>Address</p>
-                  <div className="mr-6 flex flex-wrap">
+                  <div className="flex flex-wrap">
                     <div className="my-1">
                       <select
                         name="month"
-                        value={formData.city}
+                        {...register("city")}
                         id="month"
-                        className="cursor-pointer rounded border-gray-300 bg-gray-50 py-3 px-2 text-sm shadow-sm outline-none transition"
+                        className="cursor-pointer rounded border-gray-300 bg-gray-50 py-3 px-2 text-sm"
                       >
                         <option value="">City</option>
-                        <option value="">Jakarta</option>
-                        <option value="">Bandung</option>
-                        <option value="">Surabaya</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="bandung">Bandung</option>
+                        <option value="surabaya">Surabaya</option>
                       </select>
                     </div>
-                    {/* <div className="my-1 ml-3 mr-6">
-                      <select
-                        name="year"
-                        id="year"
-                        className="cursor-pointer rounded border-gray-300 bg-gray-50 py-3 px-2 text-sm shadow-sm outline-none transition"
-                      >
-                        <option value="">Year</option>
-                      </select>
-                    </div>
-                    <div className="relative my-1">
-                      <label htmlFor="security-code" className="sr-only">
-                        Security code
-                      </label>
-                      <input
-                        type="text"
-                        id="security-code"
-                        name="security-code"
-                        className="block w-36 rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition"
-                      />
-                    </div> */}
+                  </div>
+
+                  <div>
+                    <p className="error text-sm text-red-500 ml-3">
+                      {errors.city?.message}
+                    </p>
                   </div>
                 </div>
 
@@ -101,14 +102,14 @@ function ShippingDetails() {
                   <div className="flex rounded-lg border-2 border-gray-100 py-3 pl-3">
                     <div className="flex items-center mr-4">
                       <input
-                        id="inline-radio"
+                        id="cash-on-delivery"
                         type="radio"
-                        value={formData.payment}
-                        name="inline-radio-group"
+                        {...register("payment")}
+                        value="cash-on-delivery"
                         className="w-4 h-4"
                       />
                       <label
-                        htmlFor="inline-radio"
+                        htmlFor="cash-on-delivery"
                         className="ml-2 text-sm font-medium"
                       >
                         Cash on Delivery
@@ -116,29 +117,34 @@ function ShippingDetails() {
                     </div>
                     <div className="flex items-center mr-4">
                       <input
-                        id="inline-2-radio"
+                        id="bank-transfer"
                         type="radio"
-                        value={formData.payment}
-                        name="inline-radio-group"
+                        {...register("payment")}
+                        value="bank-transfer"
                         className="w-4 h-4"
                       />
                       <label
-                        htmlFor="inline-2-radio"
+                        htmlFor="bank-transfer"
                         className="ml-2 text-sm font-medium"
                       >
                         Bank Transfer
                       </label>
                     </div>
                   </div>
+                  <div>
+                    <p className="error text-sm text-red-500 ml-3">
+                      {errors.payment?.message}
+                    </p>
+                  </div>
                 </div>
-              </form>
 
-              <button
-                type="submit"
-                className="mt-4 w-full rounded bg-emerald-950 py-2 px-4 text-white font-semibold"
-              >
-                Place Order
-              </button>
+                <button
+                  type="submit"
+                  className="mt-4 w-full rounded bg-emerald-950 py-2 px-4 text-white font-semibold"
+                >
+                  Place Order
+                </button>
+              </form>
             </div>
           </div>
 
