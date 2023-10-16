@@ -1,7 +1,7 @@
 function Header() {
   return (
     <>
-      <div className="flex items-center justify-between p-3 border-b-2 border-gray-100">
+      <div className="flex items-center justify-between p-3 border-b-2 border-gray-100 mx-1">
         {/* Menu Burger Icon*/}
         <div className="h-7 w-7">
           <svg
