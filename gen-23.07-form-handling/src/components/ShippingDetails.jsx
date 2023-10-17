@@ -5,7 +5,7 @@ import * as yup from "yup";
 function ShippingDetails() {
   const schema = yup.object().shape({
     name: yup.string().required("Full Name is required"),
-    phone: yup.string().required("Phone Number is required"),
+    phone: yup.number().required("Phone Number is required"),
     city: yup.string().required("City is required"),
     payment: yup.string().required("Payment Method is required"),
   });
