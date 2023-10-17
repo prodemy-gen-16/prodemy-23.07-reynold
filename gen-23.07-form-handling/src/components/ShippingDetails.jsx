@@ -155,27 +155,32 @@ function ShippingDetails() {
               <ul className="space-y-5">
                 <li className="flex justify-between">
                   <div className="inline-flex">
-                    <img src="" alt="Product Image" className="max-h-16" />
+                    <img
+                      src="https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg"
+                      alt="Product Image"
+                      className="max-h-28"
+                    />
                     <div className="ml-3">
-                      <p className="text-base font-semibold">Product Name</p>
+                      <p className="text-base font-semibold">White Shirt</p>
+                      <p className="text-sm text-gray-600 font-semibold">Quantity: 1</p>
                     </div>
                   </div>
-                  <p className="text-sm font-semibold">$260.00</p>
+                  <p className="text-sm font-semibold">$15.99</p>
                 </li>
               </ul>
               <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
               <div className="space-y-2">
                 <p className="flex justify-between text-lg font-bold">
                   <span>Total price:</span>
-                  <span>$510.00</span>
+                  <span>$15.99</span>
                 </p>
-                <p className="flex justify-between text-sm font-medium">
+                {/* <p className="flex justify-between text-sm font-medium">
                   <span>Vat: 10%</span>
                   <span>$55.00</span>
-                </p>
+                </p> */}
               </div>
             </div>
-            <div className="relative mt-10">
+            {/* <div className="relative mt-10">
               <h3 className="mb-5 text-lg font-bold">Support</h3>
               <p className="text-sm font-semibold">
                 +01 653 235 211{" "}
@@ -195,7 +200,7 @@ function ShippingDetails() {
                   within 30 days of purchase
                 </span>
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
