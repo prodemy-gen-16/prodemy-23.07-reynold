@@ -19,10 +19,11 @@ function ProductCard() {
   // Add To Cart
   const { setDataCheckout } = useContext(CheckoutContext);
   const handleAddToCart = () => {
-    setDataCheckout({
-      ...data,
-      qty: +1,
-    });
+    setDataCheckout((prevData) => ({
+      ...prevData,
+      qty: (prevData.qty || 0) + 1,
+      ...data, 
+    }));
   };
 
   useEffect(() => {
