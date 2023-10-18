@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useSelector } from "react-redux";
 
 function ShippingDetails() {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
+
   const schema = yup.object().shape({
     name: yup.string().required("Full Name is required"),
     phone: yup.number().typeError("Phone Number is required"),
