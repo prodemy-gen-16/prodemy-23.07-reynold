@@ -1,19 +1,29 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import useSWR from "swr";
+import { CheckoutContext } from "../context/CheckoutContext";
 
 function ProductCard() {
   const { id } = useParams();
 
+  // Get Data From API
   const getProduct = (url) => axios.get(url).then((res) => res.data);
-
   const { data } = useSWR(`http://localhost:3000/products/${id}`, getProduct);
 
+  // Thumbnail Image
   const thumbnails = data?.image;
-
   const [mainImageSrc, setMainImageSrc] = useState(thumbnails?.[0]);
   const [selectedThumbnail, setSelectedThumbnail] = useState(0);
+
+  // Add To Cart
+  const { setDataCheckout } = useContext(CheckoutContext);
+  const handleAddToCart = () => {
+    setDataCheckout({
+      ...data,
+      qty: +1,
+    });
+  };
 
   useEffect(() => {
     setMainImageSrc(thumbnails?.[selectedThumbnail]);
@@ -98,7 +108,10 @@ function ProductCard() {
                 ${data?.price}
               </p>
               {/* Button */}
-              <button className="w-full h-8 px-5 border-x border-y border-emerald-950 rounded-md sm:w-36 hover:bg-emerald-950 hover:text-white">
+              <button
+                onClick={handleAddToCart}
+                className="w-full h-8 px-5 border-x border-y border-emerald-950 rounded-md sm:w-36 hover:bg-emerald-950 hover:text-white"
+              >
                 Add to Cart
               </button>
             </div>

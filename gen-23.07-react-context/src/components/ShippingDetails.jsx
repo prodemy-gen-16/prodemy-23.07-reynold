@@ -1,15 +1,18 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useContext } from "react";
+import { CheckoutContext } from "../context/CheckoutContext";
+import axios from "axios";
 
 function ShippingDetails() {
+  // Form Validation
   const schema = yup.object().shape({
     name: yup.string().required("Full Name is required"),
     phone: yup.number().typeError("Phone Number is required"),
     city: yup.string().required("City is required"),
     payment: yup.string().required("Payment Method is required"),
   });
-
   const {
     register,
     handleSubmit,
@@ -18,8 +21,30 @@ function ShippingDetails() {
     resolver: yupResolver(schema),
   });
 
+  // Order Product
+  const { dataCheckout } = useContext(CheckoutContext);
+  console.log(dataCheckout);
+
+  // Send Checkout Data to JSON API
   const onSubmitForm = async (data) => {
-    console.log(data);
+    // console.log(data);
+
+    const payload = {
+      custtomerName: data.name,
+      custtomerphone: data.phone,
+      customerCity: data.city,
+      customerPayment: data.payment,
+      productTitle: dataCheckout.title,
+      productPrice: dataCheckout.price,
+      productQty: dataCheckout.qty,
+    };
+
+    axios
+      .post("http://localhost:3000/orders", payload)
+      .then(() => {
+        console.log("Successfully checkout");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -156,25 +181,27 @@ function ShippingDetails() {
                 <li className="flex justify-between">
                   <div className="inline-flex">
                     <img
-                      src="https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg"
+                      src={dataCheckout.image[0]}
                       alt="Product Image"
                       className="max-h-28"
                     />
                     <div className="ml-3">
-                      <p className="text-base font-semibold">White Shirt</p>
+                      <p className="text-base font-semibold">
+                        {dataCheckout.title}
+                      </p>
                       <p className="text-sm text-gray-600 font-semibold">
-                        Quantity: 1
+                        Quantity: {dataCheckout.qty}
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm font-semibold">$15.99</p>
+                  <p className="text-sm font-semibold">${dataCheckout.price}</p>
                 </li>
               </ul>
               <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
               <div className="space-y-2">
                 <p className="flex justify-between text-lg font-bold">
                   <span>Total price:</span>
-                  <span>$15.99</span>
+                  <span>${dataCheckout.qty * dataCheckout.price}</span>
                 </p>
                 {/* <p className="flex justify-between text-sm font-medium">
                   <span>Vat: 10%</span>

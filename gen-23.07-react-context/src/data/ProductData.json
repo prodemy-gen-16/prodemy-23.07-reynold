@@ -67,5 +67,17 @@
       ],
       "releaseDate": "October 10, 2023"
     }
+  ],
+  "orders": [
+    {
+      "custtomerName": "Rey",
+      "custtomerphone": 1010101010,
+      "customerCity": "bandung",
+      "customerPayment": "cash-on-delivery",
+      "productTitle": "White Shirt",
+      "productPrice": "15.99",
+      "productQty": 1,
+      "id": 1
+    }
   ]
 }
