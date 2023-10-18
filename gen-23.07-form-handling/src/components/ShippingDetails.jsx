@@ -5,7 +5,7 @@ import * as yup from "yup";
 function ShippingDetails() {
   const schema = yup.object().shape({
     name: yup.string().required("Full Name is required"),
-    phone: yup.number().required("Phone Number is required"),
+    phone: yup.number().typeError("Phone Number is required"),
     city: yup.string().required("City is required"),
     payment: yup.string().required("Payment Method is required"),
   });
@@ -33,8 +33,8 @@ function ShippingDetails() {
 
       {/* Shipping Form */}
       <div className="relative mx-auto w-full bg-white">
-        <div className="grid min-h-screen grid-cols-10">
-          <div className="col-span-full lg:col-span-6">
+        <div className="grid min-h-screen grid-cols-9">
+          <div className="col-span-full lg:col-span-5">
             <div className="mt-8 p-5 mx-auto w-full max-w-lg rounded-lg border-2 border-gray-100">
               <form
                 action=""
@@ -149,9 +149,9 @@ function ShippingDetails() {
           </div>
 
           {/* Order Summary */}
-          <div className="relative col-span-full flex flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-4 lg:py-24">
+          <div className="relative col-span-full flex flex-col lg:col-span-3">
             <h2 className="sr-only">Order summary</h2>
-            <div className="relative">
+            <div className="relative rounded-lg border-2 border-gray-100 mt-8 p-5">
               <ul className="space-y-5">
                 <li className="flex justify-between">
                   <div className="inline-flex">
@@ -162,7 +162,9 @@ function ShippingDetails() {
                     />
                     <div className="ml-3">
                       <p className="text-base font-semibold">White Shirt</p>
-                      <p className="text-sm text-gray-600 font-semibold">Quantity: 1</p>
+                      <p className="text-sm text-gray-600 font-semibold">
+                        Quantity: 1
+                      </p>
                     </div>
                   </div>
                   <p className="text-sm font-semibold">$15.99</p>
