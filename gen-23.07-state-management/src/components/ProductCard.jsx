@@ -23,7 +23,7 @@ function ProductCard() {
     dispatch(
       addToCart({
         data,
-        quantity: 1,
+        quantity: +1,
       })
     );
     alert("Successfully!")
