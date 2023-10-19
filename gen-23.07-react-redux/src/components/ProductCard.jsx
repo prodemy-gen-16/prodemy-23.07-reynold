@@ -19,13 +19,15 @@ function ProductCard() {
 
   // Add To Cart
   const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
   const handleAddToCart = () => {
     const payload = {
       ...data,
-      qty: +1,
+      qty: qty,
     };
     dispatch(checkoutOrder(payload));
     alert("Success");
+    setQty(qty + 1);
   };
 
   useEffect(() => {
