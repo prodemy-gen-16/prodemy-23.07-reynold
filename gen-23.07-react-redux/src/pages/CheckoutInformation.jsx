@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ProductCatalogue() {
   // Form Validation
@@ -22,19 +23,23 @@ function ProductCatalogue() {
     resolver: yupResolver(schema),
   });
 
+  // Order Product
+  const { dataCheckout } = useSelector((state) => state.checkout);
+  console.log(dataCheckout);
+
   // Send Checkout Data to JSON API
   const navigate = useNavigate();
   const onSubmitForm = async (data) => {
-    // console.log(data);
+    console.log(data);
 
     const payload = {
       custtomerName: data.name,
       custtomerphone: data.phone,
       customerCity: data.city,
       customerPayment: data.payment,
-      productTitle: "",
-      productTotalPrice: 0,
-      productQty: 0,
+      productTitle: dataCheckout.title,
+      productTotalPrice: dataCheckout.price * dataCheckout.qty,
+      productQty: dataCheckout.qty,
     };
 
     axios
@@ -182,21 +187,21 @@ function ProductCatalogue() {
                   <li className="flex justify-between">
                     <div className="inline-flex">
                       <img
-                        // src={dataCheckout.image[0]}
+                        src={dataCheckout.image[0]}
                         alt="Product Image"
                         className="max-h-28"
                       />
                       <div className="ml-3">
                         <p className="text-base font-semibold">
-                          {/* {dataCheckout.title} */}
+                          {dataCheckout.title}
                         </p>
                         <p className="text-sm text-gray-600 font-semibold">
-                          {/* Quantity: {dataCheckout.qty} */}
+                          Quantity: {dataCheckout.qty}
                         </p>
                       </div>
                     </div>
                     <p className="text-sm font-semibold">
-                      {/* ${dataCheckout.price} */}
+                      ${dataCheckout.price}
                     </p>
                   </li>
                 </ul>
@@ -204,7 +209,7 @@ function ProductCatalogue() {
                 <div className="space-y-2">
                   <p className="flex justify-between text-lg font-bold">
                     <span>Total price:</span>
-                    {/* <span>${dataCheckout.qty * dataCheckout.price}</span> */}
+                    <span>${dataCheckout.qty * dataCheckout.price}</span>
                   </p>
                 </div>
               </div>

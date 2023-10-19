@@ -1,7 +1,6 @@
 import "./index.css";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { CheckoutProvider } from "./context/CheckoutContext";
 
 import ProductDetail from "./pages/ProductDetail";
 import ProductCatalogue from "./pages/ProductCatalogue";
@@ -10,7 +9,6 @@ import CheckoutComplete from "./pages/CheckoutComplete";
 
 function App() {
   return (
-    <CheckoutProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/products" />} />
@@ -23,7 +21,6 @@ function App() {
           <Route path="/checkout-complete" element={<CheckoutComplete />} />
         </Routes>
       </BrowserRouter>
-    </CheckoutProvider>
   );
 }
 
