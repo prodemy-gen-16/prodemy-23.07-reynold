@@ -183,33 +183,41 @@ function ProductCatalogue() {
             <div className="relative col-span-full flex flex-col lg:col-span-3">
               <h2 className="sr-only">Order summary</h2>
               <div className="relative rounded-lg border-2 border-gray-100 mt-8 p-5">
-                <ul className="space-y-5">
-                  <li className="flex justify-between">
-                    <div className="inline-flex">
-                      <img
-                        src={dataCheckout.image[0]}
-                        alt="Product Image"
-                        className="max-h-28"
-                      />
-                      <div className="ml-3">
-                        <p className="text-base font-semibold">
-                          {dataCheckout.title}
-                        </p>
-                        <p className="text-sm text-gray-600 font-semibold">
-                          Quantity: {dataCheckout.qty}
-                        </p>
+                {dataCheckout !== null ? (
+                  <ul className="space-y-5">
+                    <li className="flex justify-between">
+                      <div className="inline-flex">
+                        <img
+                          src={dataCheckout.image[0]}
+                          alt="Product Image"
+                          className="max-h-28"
+                        />
+                        <div className="ml-3">
+                          <p className="text-base font-semibold">
+                            {dataCheckout.title}
+                          </p>
+                          <p className="text-sm text-gray-600 font-semibold">
+                            Quantity: {dataCheckout.qty}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <p className="text-sm font-semibold">
-                      ${dataCheckout.price}
-                    </p>
-                  </li>
-                </ul>
+                      <p className="text-sm font-semibold">
+                        ${dataCheckout.price}
+                      </p>
+                    </li>
+                  </ul>
+                ) : (
+                  <h1 className="text-2xl">Cart is Empty</h1>
+                )}
                 <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
                 <div className="space-y-2">
                   <p className="flex justify-between text-lg font-bold">
                     <span>Total price:</span>
-                    <span>${dataCheckout.qty * dataCheckout.price}</span>
+                    {dataCheckout !== null ? (
+                      <span>${dataCheckout.qty * dataCheckout.price}</span>
+                    ) : (
+                      <span>$0</span>
+                    )}
                   </p>
                 </div>
               </div>
