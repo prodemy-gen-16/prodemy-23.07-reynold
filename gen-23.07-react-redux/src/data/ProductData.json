@@ -68,16 +68,5 @@
       "releaseDate": "October 10, 2023"
     }
   ],
-  "orders": [
-    {
-      "custtomerName": "Nold",
-      "custtomerphone": 123123412421,
-      "customerCity": "jakarta",
-      "customerPayment": "bank-transfer",
-      "productTitle": "Backpack",
-      "productTotalPrice": 89.97,
-      "productQty": 3,
-      "id": 1
-    }
-  ]
+  "orders": []
 }
