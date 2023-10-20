@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import useSWR from "swr";
+import { useDispatch } from "react-redux";
 import { checkoutOrder } from "../store/actions/checkoutAction";
 
 function ProductCard() {
@@ -26,8 +26,8 @@ function ProductCard() {
       qty: qty,
     };
     dispatch(checkoutOrder(payload));
-    alert("Success");
     setQty(qty + 1);
+    alert("Success");
   };
 
   useEffect(() => {
