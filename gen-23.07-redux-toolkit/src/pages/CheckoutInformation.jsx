@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function ProductCatalogue() {
   // Form Validation
@@ -24,8 +24,8 @@ function ProductCatalogue() {
   });
 
   // Order Product
-  // const { dataCheckout } = useSelector((state) => state.checkout);
-  // console.log(dataCheckout);
+  const { dataCheckout } = useSelector((state) => state.checkout);
+  console.log(dataCheckout);
 
   // Send Checkout Data to JSON API
   const navigate = useNavigate();

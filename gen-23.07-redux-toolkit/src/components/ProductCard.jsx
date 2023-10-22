@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
+import { checkoutOrder } from "../store/reducers/checkoutSlice"
 
 function ProductCard() {
   const { id } = useParams();
@@ -17,17 +18,17 @@ function ProductCard() {
   const [selectedThumbnail, setSelectedThumbnail] = useState(0);
 
   // Add To Cart
-  // const dispatch = useDispatch();
-  // const [qty, setQty] = useState(1);
-  // const handleAddToCart = () => {
-  //   const payload = {
-  //     ...data,
-  //     qty: qty,
-  //   };
-  //   dispatch(checkoutOrder(payload));
-  //   setQty(qty + 1);
-  //   alert("Success");
-  // };
+  const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
+  const handleAddToCart = () => {
+    const payload = {
+      ...data,
+      qty: qty+1,
+    };
+    dispatch(checkoutOrder(payload));
+    setQty(qty + 1);
+    alert("Success");
+  };
 
   useEffect(() => {
     setMainImageSrc(thumbnails?.[selectedThumbnail]);
@@ -113,7 +114,7 @@ function ProductCard() {
               </p>
               {/* Button */}
               <button
-                // onClick={handleAddToCart}
+                onClick={handleAddToCart}
                 className="w-full h-8 px-5 border-x border-y border-emerald-950 rounded-md sm:w-36 hover:bg-emerald-950 hover:text-white"
               >
                 Add to Cart
