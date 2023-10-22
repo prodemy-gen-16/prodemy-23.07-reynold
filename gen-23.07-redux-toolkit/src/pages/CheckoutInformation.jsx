@@ -27,7 +27,6 @@ function ProductCatalogue() {
   // Order Product
   const dataCheckout = useSelector((state) => state.cart);
   console.log(dataCheckout);
-  const { list } = useSelector((state) => state.cart); // To retrieve data length
 
   // Send Checkout Data to JSON API
   const navigate = useNavigate();
@@ -184,17 +183,20 @@ function ProductCatalogue() {
             <div className="relative col-span-full flex flex-col lg:col-span-3">
               <h2 className="sr-only">Order summary</h2>
               <div className="relative rounded-lg border-2 border-gray-100 mt-8 p-5">
-                {/* {list?.length > 0 ? ( */}
-                <ul className="space-y-3">
-                  {dataCheckout?.list.map((item) => {
-                    return <CartItem key={item?.id} data={item} />;
-                  })}
-                </ul>
+                {dataCheckout.totalQuantity > 0 ? (
+                  <ul className="space-y-3">
+                    {dataCheckout?.list.map((item) => {
+                      return <CartItem key={item?.id} data={item} />;
+                    })}
+                  </ul>
+                ) : (
+                  <h1 className="text-2xl">Cart is Empty</h1>
+                )}
                 <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
                 <div className="space-y-2">
                   <p className="flex justify-between text-lg font-bold">
                     <span>Total price:</span>
-                    {list?.length > 0 ? (
+                    {dataCheckout.totalQuantity > 0 ? (
                       <span>${dataCheckout.totalPrice}</span>
                     ) : (
                       <span>$0</span>
