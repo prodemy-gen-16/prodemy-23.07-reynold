@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
-import { checkoutOrder } from "../store/reducers/checkoutSlice"
+import { addToCart } from "../store/reducers/cartSlice";
 
 function ProductCard() {
   const { id } = useParams();
@@ -19,15 +19,8 @@ function ProductCard() {
 
   // Add To Cart
   const dispatch = useDispatch();
-  const [qty, setQty] = useState(1);
   const handleAddToCart = () => {
-    const payload = {
-      ...data,
-      qty: qty+1,
-    };
-    dispatch(checkoutOrder(payload));
-    setQty(qty + 1);
-    alert("Success");
+    dispatch(addToCart({ ...data, quantity: 1 }));
   };
 
   useEffect(() => {

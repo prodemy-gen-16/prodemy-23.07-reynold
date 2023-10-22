@@ -6,6 +6,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CartItem from "../components/CartItem";
 
 function ProductCatalogue() {
   // Form Validation
@@ -24,22 +25,22 @@ function ProductCatalogue() {
   });
 
   // Order Product
-  const { dataCheckout } = useSelector((state) => state.checkout);
+  let dataCheckout = useSelector((state) => state.cart);
   console.log(dataCheckout);
+  const { list } = useSelector((state) => state.cart); // To retrieve data length
 
   // Send Checkout Data to JSON API
   const navigate = useNavigate();
   const onSubmitForm = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const payload = {
       custtomerName: data.name,
       custtomerphone: data.phone,
       customerCity: data.city,
       customerPayment: data.payment,
-      productTitle: dataCheckout.title,
-      productTotalPrice: dataCheckout.price * dataCheckout.qty,
-      productQty: dataCheckout.qty,
+      productList: [dataCheckout.list],
+      productTotalPrice: dataCheckout.total,
     };
 
     axios
@@ -62,9 +63,9 @@ function ProductCatalogue() {
           </div>
         </div>
 
-        {/* Shipping Form */}
         <div className="relative mx-auto w-full bg-white">
           <div className="grid min-h-screen grid-cols-9">
+            {/* Shipping Form */}
             <div className="col-span-full lg:col-span-5">
               <div className="mt-8 p-5 mx-auto w-full max-w-lg rounded-lg border-2 border-gray-100">
                 <form
@@ -183,38 +184,18 @@ function ProductCatalogue() {
             <div className="relative col-span-full flex flex-col lg:col-span-3">
               <h2 className="sr-only">Order summary</h2>
               <div className="relative rounded-lg border-2 border-gray-100 mt-8 p-5">
-                {dataCheckout !== null ? (
-                  <ul className="space-y-5">
-                    <li className="flex justify-between">
-                      <div className="inline-flex">
-                        <img
-                          src={dataCheckout.image[0]}
-                          alt="Product Image"
-                          className="max-h-28"
-                        />
-                        <div className="ml-3">
-                          <p className="text-base font-semibold">
-                            {dataCheckout.title}
-                          </p>
-                          <p className="text-sm text-gray-600 font-semibold">
-                            Quantity: {dataCheckout.qty}
-                          </p>
-                        </div>
-                      </div>
-                      <p className="text-sm font-semibold">
-                        ${dataCheckout.price}
-                      </p>
-                    </li>
-                  </ul>
-                ) : (
-                  <h1 className="text-2xl">Cart is Empty</h1>
-                )}
+                {/* {list?.length > 0 ? ( */}
+                <ul className="space-y-3">
+                  {dataCheckout?.list.map((item) => {
+                    return <CartItem key={item?.id} data={item} />;
+                  })}
+                </ul>
                 <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
                 <div className="space-y-2">
                   <p className="flex justify-between text-lg font-bold">
                     <span>Total price:</span>
-                    {dataCheckout !== null ? (
-                      <span>${dataCheckout.qty * dataCheckout.price}</span>
+                    {list?.length > 0 ? (
+                      <span>${dataCheckout.total}</span>
                     ) : (
                       <span>$0</span>
                     )}

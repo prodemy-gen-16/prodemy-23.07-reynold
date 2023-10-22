@@ -68,5 +68,78 @@
       "releaseDate": "October 10, 2023"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "custtomerName": "Reynold",
+      "custtomerphone": 26272910129,
+      "customerCity": "jakarta",
+      "customerPayment": "cash-on-delivery",
+      "productList": [
+        {
+          "id": 1,
+          "title": "Backpack",
+          "description": "Carry all the things with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
+          "price": "29.99",
+          "image": [
+            "https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg",
+            "https://i.pinimg.com/originals/1a/20/c5/1a20c5f989549551a09b68e1daad45ef.jpg"
+          ],
+          "releaseDate": "October 9, 2023",
+          "quantity": 2
+        },
+        {
+          "id": 6,
+          "title": "White Shirt",
+          "description": "This classic t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
+          "price": "15.99",
+          "image": [
+            "https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg",
+            "https://cdn.shopify.com/s/files/1/1620/6469/products/white-mens-plain-t-shirt-birthday-gift-00519-casual-ultrabasic_619_1001x.jpg",
+            "https://cdn.cliqueinc.com/posts/199831/the-best-white-t-shirts-according-to-amazon-reviews-1862459-1470696928.700x0c.jpg"
+          ],
+          "releaseDate": "October 10, 2023",
+          "quantity": 1
+        }
+      ],
+      "productTotalPrice": 75.97,
+      "id": 2
+    },
+    {
+      "custtomerName": "Rey",
+      "custtomerphone": 191728,
+      "customerCity": "bandung",
+      "customerPayment": "bank-transfer",
+      "productList": [
+        null,
+        null
+      ],
+      "productTotalPrice": 85.96,
+      "id": 3
+    },
+    {
+      "custtomerName": "Nold",
+      "custtomerphone": 26272910129,
+      "customerCity": "jakarta",
+      "customerPayment": "bank-transfer",
+      "productList": [
+        [
+          {
+            "id": 6,
+            "title": "White Shirt",
+            "description": "This classic t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.",
+            "price": "15.99",
+            "image": [
+              "https://www.saucedemo.com/static/media/red-onesie-1200x1500.2ec615b2.jpg",
+              "https://cdn.shopify.com/s/files/1/1620/6469/products/white-mens-plain-t-shirt-birthday-gift-00519-casual-ultrabasic_619_1001x.jpg",
+              "https://cdn.cliqueinc.com/posts/199831/the-best-white-t-shirts-according-to-amazon-reviews-1862459-1470696928.700x0c.jpg"
+            ],
+            "releaseDate": "October 10, 2023",
+            "quantity": 2
+          }
+        ]
+      ],
+      "productTotalPrice": 31.98,
+      "id": 4
+    }
+  ]
 }
