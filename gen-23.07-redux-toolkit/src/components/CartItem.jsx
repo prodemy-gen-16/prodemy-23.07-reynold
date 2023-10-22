@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 function CartItem({ data }) {
-  console.log(data);
-  const [totalPrice, setTotalPrice] = useState(+data?.price * +data?.quantity);
   return (
     <li className="flex justify-between">
       <div className="inline-flex">

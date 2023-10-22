@@ -17,8 +17,16 @@ const cartSlice = createSlice({
       } else {
         state.list.push(action.payload);
       }
-      state.total = state.list.reduce(
+
+      // Count Total Price
+      state.totalPrice = state.list.reduce(
         (sum, product) => sum + +product?.price * product?.quantity,
+        0
+      );
+      
+      // Count Total Quantity
+      state.totalQuantity = state.list.reduce(
+        (sum, product) => sum + +product?.quantity,
         0
       );
     },

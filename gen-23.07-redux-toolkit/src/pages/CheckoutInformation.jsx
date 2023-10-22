@@ -40,7 +40,7 @@ function ProductCatalogue() {
       customerCity: data.city,
       customerPayment: data.payment,
       productList: [dataCheckout.list],
-      productTotalPrice: dataCheckout.total,
+      productTotalPrice: dataCheckout.totalPrice,
     };
 
     axios
@@ -195,7 +195,7 @@ function ProductCatalogue() {
                   <p className="flex justify-between text-lg font-bold">
                     <span>Total price:</span>
                     {list?.length > 0 ? (
-                      <span>${dataCheckout.total}</span>
+                      <span>${dataCheckout.totalPrice}</span>
                     ) : (
                       <span>$0</span>
                     )}
