@@ -25,7 +25,7 @@ function ProductCatalogue() {
   });
 
   // Order Product
-  let dataCheckout = useSelector((state) => state.cart);
+  const dataCheckout = useSelector((state) => state.cart);
   console.log(dataCheckout);
   const { list } = useSelector((state) => state.cart); // To retrieve data length
 
