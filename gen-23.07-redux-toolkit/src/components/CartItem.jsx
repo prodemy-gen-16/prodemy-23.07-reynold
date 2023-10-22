@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+/* eslint-disable react/prop-types */
 function CartItem({ data }) {
   return (
     <li className="flex justify-between">
