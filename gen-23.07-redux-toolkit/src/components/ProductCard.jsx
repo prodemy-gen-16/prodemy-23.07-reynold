@@ -1,33 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import useSWR from "swr";
-import { addToCart } from "../redux/sllice/cartSlice";
+import { useDispatch } from "react-redux";
 
 function ProductCard() {
   const { id } = useParams();
 
+  // Get Data From API
   const getProduct = (url) => axios.get(url).then((res) => res.data);
-
   const { data } = useSWR(`http://localhost:3000/products/${id}`, getProduct);
 
-  // Image Thumbnail
+  // Thumbnail Image
   const thumbnails = data?.image;
   const [mainImageSrc, setMainImageSrc] = useState(thumbnails?.[0]);
   const [selectedThumbnail, setSelectedThumbnail] = useState(0);
 
-  // Add to Cart
-  const dispatch = useDispatch();
-  const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        data,
-        quantity: +1,
-      })
-    );
-    alert("Successfully!")
-  };
+  // Add To Cart
+  // const dispatch = useDispatch();
+  // const [qty, setQty] = useState(1);
+  // const handleAddToCart = () => {
+  //   const payload = {
+  //     ...data,
+  //     qty: qty,
+  //   };
+  //   dispatch(checkoutOrder(payload));
+  //   setQty(qty + 1);
+  //   alert("Success");
+  // };
 
   useEffect(() => {
     setMainImageSrc(thumbnails?.[selectedThumbnail]);
@@ -113,7 +113,7 @@ function ProductCard() {
               </p>
               {/* Button */}
               <button
-                onClick={handleAddToCart}
+                // onClick={handleAddToCart}
                 className="w-full h-8 px-5 border-x border-y border-emerald-950 rounded-md sm:w-36 hover:bg-emerald-950 hover:text-white"
               >
                 Add to Cart

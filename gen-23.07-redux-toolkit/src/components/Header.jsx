@@ -22,10 +22,10 @@ function Header() {
           </svg>
         </div>
 
-        <h1 className="text-2xl">Swag Labs</h1>
+        <Link to={"/"} className="text-2xl">Swag Labs</Link>
 
         {/* Cart Icon*/}
-        <Link to={"/checkout"} className="h-7 w-7">
+        <Link to={"/checkout-information"} className="h-7 w-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
