@@ -19,11 +19,13 @@ const cartSlice = createSlice({
       }
 
       // Count Total Price
-      state.totalPrice = state.list.reduce(
-        (sum, product) => sum + +product?.price * product?.quantity,
-        0
-      );
-      
+      state.totalPrice = state.list
+        .reduce(
+          (sum, product) => sum + (+product?.price * product?.quantity || 0),
+          0
+        )
+        .toFixed(2);
+
       // Count Total Quantity
       state.totalQuantity = state.list.reduce(
         (sum, product) => sum + +product?.quantity,
