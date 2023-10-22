@@ -28,6 +28,7 @@ function ProductDetail() {
   useEffect(() => {
     setMainImageSrc(thumbnails?.[selectedThumbnail]);
   }, [thumbnails, selectedThumbnail]);
+
   return (
     <>
       <Header />
