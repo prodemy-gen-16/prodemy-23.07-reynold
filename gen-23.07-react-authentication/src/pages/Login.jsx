@@ -1,8 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { setToken, setUser } from "../store/reducers/authSlice";
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup.string().email().required("Email is required"),
     password: yup.string().min(6).max(18).required(),
@@ -22,6 +29,9 @@ function Login() {
       .post("http://localhost:3000/login", data)
       .then((res) => {
         const { accessToken, user } = res.data;
+        dispatch(setToken(accessToken));
+        dispatch(setUser(user));
+        navigate("/");
         reset();
       })
       .catch((error) => console.log(error));
