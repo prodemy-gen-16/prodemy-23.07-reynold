@@ -1,4 +1,32 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
+import * as yup from "yup";
+
 function Login() {
+  const schema = yup.object().shape({
+    email: yup.string().email().required("Email is required"),
+    password: yup.string().min(6).max(18).required(),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmitForm = (data) => {
+    axios
+      .post("http://localhost:3000/login", data)
+      .then((res) => {
+        const { accessToken, user } = res.data;
+        reset();
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="col-span-full lg:col-span-5">
       <div className="flex items-center justify-center p-3 mx-1 mt-5">
@@ -9,7 +37,7 @@ function Login() {
         <form
           action=""
           className="flex flex-col space-y-4"
-          // onSubmit={handleSubmit(onSubmitForm)}
+          onSubmit={handleSubmit(onSubmitForm)}
         >
           {/* Email */}
           <div>
@@ -17,12 +45,12 @@ function Login() {
               type="email"
               id="email"
               name="email"
-              // {...register("email")}
+              {...register("email")}
               placeholder="Email"
               className="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm"
             />
             <p className="error text-sm text-red-500 ml-4">
-              {/* {errors.name?.message} */}
+              {errors.email?.message}
             </p>
           </div>
 
@@ -32,12 +60,12 @@ function Login() {
               type="password"
               id="password"
               name="password"
-              // {...register("password")}
+              {...register("password")}
               placeholder="Password"
               className="block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 pr-10 text-sm"
             />
             <p className="error text-sm text-red-500 ml-4">
-              {/* {errors.password?.message} */}
+              {errors.password?.message}
             </p>
           </div>
 
@@ -45,7 +73,7 @@ function Login() {
             type="submit"
             className="w-full rounded bg-emerald-950 py-2 px-4 text-white font-semibold"
           >
-            Place Order
+            Login
           </button>
         </form>
       </div>
