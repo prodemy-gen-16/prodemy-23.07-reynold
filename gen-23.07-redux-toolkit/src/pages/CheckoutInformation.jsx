@@ -31,7 +31,6 @@ function ProductCatalogue() {
   // Send Checkout Data to JSON API
   const navigate = useNavigate();
   const onSubmitForm = async (data) => {
-    // console.log(data);
 
     const payload = {
       custtomerName: data.name,
@@ -198,6 +197,7 @@ function ProductCatalogue() {
                     <span>Total price:</span>
                     {dataCheckout.totalQuantity > 0 ? (
                       <span>${dataCheckout.totalPrice}</span>
+                      
                     ) : (
                       <span>$0</span>
                     )}
