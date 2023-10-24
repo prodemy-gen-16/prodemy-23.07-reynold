@@ -68,6 +68,13 @@
       "releaseDate": "October 10, 2023"
     }
   ],
-  "orders": [
+  "orders": [],
+  "users": [
+    {
+      "email": "rey@gmail.com",
+      "password": "$2a$10$dsuxYtzgl9C49RxzYP6R0.sd7LHCXZNQTN7evSkig2Aevgem3Jf1O",
+      "username": "rey123",
+      "id": 1
+    }
   ]
 }
