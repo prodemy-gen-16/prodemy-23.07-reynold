@@ -10,7 +10,7 @@ function ProductCatalogue() {
 
   const getProducts = (url) => axios.get(url).then((res) => res.data);
 
-  const { data } = useSWR("http://localhost:3000/products", getProducts, {
+  const { data } = useSWR("http://localhost:3000/660/products", getProducts, {
     onSuccess: (data) =>
       data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)),
   });

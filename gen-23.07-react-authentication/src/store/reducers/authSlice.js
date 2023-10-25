@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   token: "",
@@ -14,6 +15,7 @@ function getStoreAuthState() {
   const userString = localStorage.getItem("user");
 
   if (token) {
+    axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     return {
       token,
       user: JSON.parse(userString),
@@ -31,6 +33,7 @@ const authSlice = createSlice({
       const token = action.payload;
       state.token = token;
       localStorage.setItem("token", token);
+      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     },
     setUser(state, action) {
       const { id, email, username } = action.payload;
@@ -42,6 +45,7 @@ const authSlice = createSlice({
     resetAuthData() {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+      delete axios.defaults.headers.common["Authorization"];
       return { ...initialState };
     },
   },
