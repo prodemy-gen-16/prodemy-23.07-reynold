@@ -59,7 +59,7 @@ function Header() {
 
               {/* Display Cart Item Quantity */}
               {dataCheckout.totalQuantity > 0 ? (
-                <span className="absolute top-2 right-2 w-[18px] h-[18px] bg-green-500 text-white text-xs rounded-full flex items-center justify-center">
+                <span className="absolute top-2 right-8 w-[17px] h-[17px] bg-green-500 text-white text-xs rounded-full flex items-center justify-center">
                   {dataCheckout.totalQuantity}
                 </span>
               ) : (
